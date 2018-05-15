@@ -1,0 +1,40 @@
+@import 'https://fonts.googleapis.com/css?family=Lato|Ubuntu';
+
+$main-font: 'Ubuntu', sans-serif;
+$title-font: 'Lato', sans-serif;
+$title-weight: normal;
+
+$gutter: 10px;
+
+$padding: 10px;
+$margin: 10px;
+$border-radius: 5px;
+
+$font-size: 16px;
+$line-height: 1.5;
+
+$h1: 2.2 * $font-size;
+$h2: 2.0 * $font-size;
+$h3: 1.8 * $font-size;
+$h4: 1.6 * $font-size;
+$h5: 1.4 * $font-size;
+$h6: 1.2 * $font-size;
+
+$color_saturation: 70; // 0 - 100
+
+$icon-prefix: pwi;
+
+$z-index: (
+	back: -100,
+	tooltip: 100,
+	navbar: 500,
+	modal: 1000
+);
+
+$breakpoints: (
+	mobile: 640px,
+	tablet: 768px,
+	laptop: 1024px,
+	pc: 1224px,
+	large: 1824px
+);

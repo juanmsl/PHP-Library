@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+// Config
+@import 'config/variables';
+@import 'config/colors';
+@import 'config/functions';
+@import 'config/mixins';
+@import 'config/animations';
+
+// Themes
+@import 'themes/main';
+
+// Fonts
+@import 'fonts/fontawesome';
+
+// Base
+@import 'base/normalize';
+@import 'base/base';
+
+// Layout
+@import 'layout/layout';
+
+// Components
+@import 'components/forms';
+@import 'components/loading';
+
+// Modules
+@import 'modules/maincontent';
+
+// Pages
+@import 'pages/index';

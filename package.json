@@ -1,0 +1,45 @@
+{
+  "name": "php-library",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-notifications": "^1.4.3",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-if": "^2.0.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-todo": "^5.4.0",
+    "vinyl-paths": "^2.1.0"
+  },
+  "scripts": {
+    "start": "echo todo",
+    "dev": "gulp"
+  },
+  "description": "",
+  "main": "gulpfile.babel.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanmsl/PHP-Library.git"
+  },
+  "author": "Juan Manuel Sánchez Lozano <juanmsl_pk@hotmail.com> (https://juanmsl.github.io/)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/juanmsl/PHP-Library/issues"
+  },
+  "homepage": "https://github.com/juanmsl/PHP-Library#readme",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
+}

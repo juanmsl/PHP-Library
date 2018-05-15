@@ -1,0 +1,19 @@
+@mixin from($mediaquery) {
+	$type-of: type-of($mediaquery);
+	@if map-has-key($breakpoints, $mediaquery) {
+		@media all and (min-width: #{map-get($breakpoints, $mediaquery)}) {
+			@content;
+		}
+	} @else if $type-of == number {
+		$unit: unit($mediaquery);
+		@if $unit == 'px' {
+			@media all and (min-width: $mediaquery) {
+				@content;
+			}
+		} @else {
+			@error('The media-query \'#{$mediaquery}\' must have media in \'px\' unit');
+		}
+	} @else {
+		@error('The breakpoint \'#{$mediaquery}\' isn\'t a valid breakpoint name');
+	}
+}

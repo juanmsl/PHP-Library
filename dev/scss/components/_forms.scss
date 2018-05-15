@@ -1,0 +1,55 @@
+.pw-form {
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+
+    .pw-field {
+        padding: $padding 0;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+
+    .pw-label {
+        display: block;
+    }
+
+    .pw-label::before, .pw-input, .pw-submit {
+        padding: $padding;
+        outline: 0;
+    }
+
+    .pw-label::before {
+        width: 40px;
+        text-align: center;
+        border: 1px solid $gray-5;
+        background: $gray-D;
+        display: block;
+    }
+
+	.pw-input {
+		border-radius: 0;
+		padding: $padding;
+        flex-grow: 1;
+        border: 0;
+		background: $gray-E;
+
+		&:focus, &:focus ~ .pw-label {
+			color: $primary-darker-color;
+		}
+
+		&:invalid {
+			outline: 0;
+		}
+	}
+
+    .pw-submit {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -op-appearance: none;
+        background: $white;
+        margin-top: $margin;
+        padding: $padding $padding * 4;
+        align-self: center;
+    }
+}

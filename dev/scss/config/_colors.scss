@@ -1,0 +1,144 @@
+$active: 	#0077AA;
+$success: 	#069B5A;
+$warning: 	#FD9234;
+$alert: 	#DD4F43;
+$disabled: 	#999999;
+
+$color-states: (
+	active: $active,
+	success: $success,
+	warning: $warning,
+	alert: $alert,
+	disabled: $disabled
+);
+
+$s: $color_saturation;
+
+$red-05: hsl(0, $s, 05);
+$red-10: hsl(0, $s, 10);
+$red-15: hsl(0, $s, 15);
+$red-20: hsl(0, $s, 20);
+$red-25: hsl(0, $s, 25);
+$red-30: hsl(0, $s, 30);
+$red-35: hsl(0, $s, 35);
+$red-40: hsl(0, $s, 40);
+$red-45: hsl(0, $s, 45);
+$red-50: hsl(0, $s, 50);
+$red-55: hsl(0, $s, 55);
+$red-60: hsl(0, $s, 60);
+$red-65: hsl(0, $s, 65);
+$red-70: hsl(0, $s, 70);
+$red-75: hsl(0, $s, 75);
+$red-80: hsl(0, $s, 80);
+$red-85: hsl(0, $s, 85);
+
+$yellow-05: hsl(60, $s, 05);
+$yellow-10: hsl(60, $s, 10);
+$yellow-15: hsl(60, $s, 15);
+$yellow-20: hsl(60, $s, 20);
+$yellow-25: hsl(60, $s, 25);
+$yellow-30: hsl(60, $s, 30);
+$yellow-35: hsl(60, $s, 35);
+$yellow-40: hsl(60, $s, 40);
+$yellow-45: hsl(60, $s, 45);
+$yellow-50: hsl(60, $s, 50);
+$yellow-55: hsl(60, $s, 55);
+$yellow-60: hsl(60, $s, 60);
+$yellow-65: hsl(60, $s, 65);
+$yellow-70: hsl(60, $s, 70);
+$yellow-75: hsl(60, $s, 75);
+$yellow-80: hsl(60, $s, 80);
+$yellow-85: hsl(60, $s, 85);
+
+$green-05: hsl(120, $s, 05);
+$green-10: hsl(120, $s, 10);
+$green-15: hsl(120, $s, 15);
+$green-20: hsl(120, $s, 20);
+$green-25: hsl(120, $s, 25);
+$green-30: hsl(120, $s, 30);
+$green-35: hsl(120, $s, 35);
+$green-40: hsl(120, $s, 40);
+$green-45: hsl(120, $s, 45);
+$green-50: hsl(120, $s, 50);
+$green-55: hsl(120, $s, 55);
+$green-60: hsl(120, $s, 60);
+$green-65: hsl(120, $s, 65);
+$green-70: hsl(120, $s, 70);
+$green-75: hsl(120, $s, 75);
+$green-80: hsl(120, $s, 80);
+$green-85: hsl(120, $s, 85);
+$green-90: hsl(120, $s, 90);
+$green-95: hsl(120, $s, 95);
+
+$cyan-05: hsl(180, $s, 05);
+$cyan-10: hsl(180, $s, 10);
+$cyan-15: hsl(180, $s, 15);
+$cyan-20: hsl(180, $s, 20);
+$cyan-25: hsl(180, $s, 25);
+$cyan-30: hsl(180, $s, 30);
+$cyan-35: hsl(180, $s, 35);
+$cyan-40: hsl(180, $s, 40);
+$cyan-45: hsl(180, $s, 45);
+$cyan-50: hsl(180, $s, 50);
+$cyan-55: hsl(180, $s, 55);
+$cyan-60: hsl(180, $s, 60);
+$cyan-65: hsl(180, $s, 65);
+$cyan-70: hsl(180, $s, 70);
+$cyan-75: hsl(180, $s, 75);
+$cyan-80: hsl(180, $s, 80);
+$cyan-85: hsl(180, $s, 85);
+$cyan-90: hsl(180, $s, 90);
+$cyan-95: hsl(180, $s, 95);
+
+$blue-05: hsl(240, $s, 05);
+$blue-10: hsl(240, $s, 10);
+$blue-15: hsl(240, $s, 15);
+$blue-20: hsl(240, $s, 20);
+$blue-25: hsl(240, $s, 25);
+$blue-30: hsl(240, $s, 30);
+$blue-35: hsl(240, $s, 35);
+$blue-40: hsl(240, $s, 40);
+$blue-45: hsl(240, $s, 45);
+$blue-50: hsl(240, $s, 50);
+$blue-55: hsl(240, $s, 55);
+$blue-60: hsl(240, $s, 60);
+$blue-65: hsl(240, $s, 65);
+$blue-70: hsl(240, $s, 70);
+$blue-75: hsl(240, $s, 75);
+$blue-80: hsl(240, $s, 80);
+$blue-85: hsl(240, $s, 85);
+
+$purple-05: hsl(270, $s, 05);
+$purple-10: hsl(270, $s, 10);
+$purple-15: hsl(270, $s, 15);
+$purple-20: hsl(270, $s, 20);
+$purple-25: hsl(270, $s, 25);
+$purple-30: hsl(270, $s, 30);
+$purple-35: hsl(270, $s, 35);
+$purple-40: hsl(270, $s, 40);
+$purple-45: hsl(270, $s, 45);
+$purple-50: hsl(270, $s, 50);
+$purple-55: hsl(270, $s, 55);
+$purple-60: hsl(270, $s, 60);
+$purple-65: hsl(270, $s, 65);
+$purple-70: hsl(270, $s, 70);
+$purple-75: hsl(270, $s, 75);
+$purple-80: hsl(270, $s, 80);
+$purple-85: hsl(270, $s, 85);
+
+$black: 	#000000;
+$gray-1: 	#111111;
+$gray-2: 	#222222;
+$gray-3: 	#333333;
+$gray-4: 	#444444;
+$gray-5: 	#555555;
+$gray-6: 	#666666;
+$gray-7: 	#777777;
+$gray-8: 	#888888;
+$gray-9: 	#999999;
+$gray-A: 	#AAAAAA;
+$gray-B: 	#BBBBBB;
+$gray-C: 	#CCCCCC;
+$gray-D: 	#DDDDDD;
+$gray-E: 	#EEEEEE;
+$white: 	#FFFFFF;

@@ -1,0 +1,24 @@
+.pw-loading {
+	flex-grow: 1;
+	background: $gray-E;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: $padding * 5;
+
+	.pw-loading-icon {
+		width: 30px;
+		height: 30px;
+		border: 5px solid $primary-color;
+		border-left-color: transparent;
+		border-right-color: transparent;
+		border-radius: 50%;
+		animation: rotate 1s linear infinite;
+	}
+
+	.pw-error-icon {
+		color: $red-60;
+		font-size: 3em;
+	}
+}

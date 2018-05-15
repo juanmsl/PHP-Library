@@ -1,0 +1,23 @@
+@function image($image) {
+	@return url("../images/" + $image);
+}
+
+@function z-index($val){
+	@if map-get($z-index, $val) {
+		@return map-get($z-index,$val);
+	} @else {
+		@error('The value \'#{$val}\' isn\'t a valid z-index name');
+	}
+}
+
+@function color($color, $opacity: 1){
+	@if map-get($colors, $color) {
+		@return rgba(map-get($colors,$color), $opacity);
+	} @else {
+		@error('The color \'#{$color}\' isn\'t a valid color name');
+	}
+}
+
+@function proporcion($size, $w: 16, $h: 9) {
+	@return ($size * $h) / $w;
+}

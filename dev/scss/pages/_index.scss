@@ -1,0 +1,8 @@
+.pw-header {
+	background: image("cover.jpg") center center / cover fixed no-repeat;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: $padding * 15 $padding * 5;
+}
