@@ -9,5 +9,5 @@
         
         ?> 
     </body>
-    <script src="js/scripts.js"></script>
+    <script src="../_resources/js/scripts.js"></script>
 </html>
