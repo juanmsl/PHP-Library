@@ -3,10 +3,10 @@
 define('DS',            DIRECTORY_SEPARATOR);
 define('LB',            chr(13));
 define('CWD',           dirname(__FILE__) . DS);
-define('INCLUDES',      CWD . 'includes' . DS);
-define('PAGES',         CWD . 'pages' . DS);
-define('STATIC',        CWD . "static" . DS);
-define('CLASSES',         CWD . "classes" . DS);
+define('CLASSES',       CWD . "_classes" . DS);
+define('INCLUDES',      CWD . '_includes' . DS);
+define('PAGES',         CWD . '_pages' . DS);
+define('RESOURCES',     CWD . "_resources" . DS);
 define('SITE_NAME',     "Proweb");
 define('LANGUAGE',      "es");
 define('THEME_COLOR',   "#0D91CF");

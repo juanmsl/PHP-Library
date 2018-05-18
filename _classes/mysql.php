@@ -42,10 +42,15 @@ class MySQL {
 		}
 	}
 	
-	public function doQuery($query) {
+	public function doQuery($query, $error = null) {
 		if($this->IsConnected()) {
 			$this->numQueries++;
-			$resultset = $this->link->query($query) or $this->error($this->link->error);
+			if($error != null) {
+				$resultset = $this->link->query($query) or $error($this->link->error);
+			} else {
+				$resultset = $this->link->query($query) or $this->error($this->link->error);
+			}
+			
 			return $resultset;
 		} else {
 			$this->error('Could not process query, no active db connection detected..');
@@ -63,7 +68,7 @@ class MySQL {
 	}
 	
 	public function error($errorString) {
-		$core->systemError('Database fail', $errorString);
+		$this->core->systemError('Database fail', $errorString);
 	}
 	
 	public function __destruct() {

@@ -3,7 +3,7 @@
 import path from 'path';
 
 const config = {
-	"dev_dir": "dev",
+	"dev_dir": "_dev",
 	"build_dir": "static",
 	"styles": {
 		"src": "scss/styles.scss",
