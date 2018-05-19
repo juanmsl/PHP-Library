@@ -32,8 +32,8 @@ $DB->connect();
 // ****************************************************************************
 
 define('INDEX', 		WWW . "/");
-define('REGISTRO',		WWW . "/app/signup.php");
-define('HOME',			WWW . "/app/home.php");
+define('REGISTRO',		WWW . "/signup");
+define('HOME',			WWW . "/home");
 
 // ****************************************************************************
 
