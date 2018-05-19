@@ -4,13 +4,13 @@ import path from 'path';
 
 const config = {
 	"dev_dir": "_dev",
-	"build_dir": "static",
+	"build_dir": "_resources",
 	"styles": {
 		"src": "scss/styles.scss",
 		"dest": "css",
 		"watch": "scss/**/*.scss",
 		"sass": {
-			"outputStyle": "compressed"
+			"outputStyle": "compact"
 		},
 		"autoprefixer": {
 			"browsers": "last 2 versions",

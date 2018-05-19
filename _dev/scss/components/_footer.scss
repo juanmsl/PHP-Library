@@ -1,0 +1,61 @@
+.pw-footer {
+    background: $primary_dark;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $padding * 2;
+    
+    .footer-title {
+        text-align: center;
+        color: white;
+    }
+    
+    .separator {
+        background: $primary_blue;
+        height: 2px;
+        margin: $margin $margin * 16;
+        width: 100%;
+    }
+    
+    .developers {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 0.8rem;
+        padding: $padding / 2 0;
+    }
+    
+    .developer {
+        width: 250px;
+        text-align: center;
+        margin: $margin 0;
+    }
+    
+    @include from('tablet') {
+        padding: $padding * 5;
+        
+        .separator {
+            width: 550px;
+        }
+        
+        .developers {
+            flex-direction: row;
+        }
+        
+        .developer {
+            margin: inherit;
+        }
+    }
+    
+    .pwi {
+        font-size: 2rem;
+        margin-right: $margin;
+    }
+    
+    .source {
+        margin-top: $margin * 2;
+        display: flex;
+        align-items: center;
+    }
+}

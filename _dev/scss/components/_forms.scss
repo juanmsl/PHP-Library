@@ -1,55 +1,59 @@
 .pw-form {
+    background: white;
     display: flex;
     flex-direction: column;
-    min-width: 350px;
-
-    .pw-field {
-        padding: $padding 0;
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: flex-end;
+    padding: $padding * 3 $padding * 4;
+    margin: $margin * 2;
+    
+    .pw-form-logo {
+        width: 130px;
+        margin: 0 auto;
+        margin-bottom: $margin * 4;
     }
-
-    .pw-label {
-        display: block;
-    }
-
-    .pw-label::before, .pw-input, .pw-submit {
-        padding: $padding;
-        outline: 0;
-    }
-
-    .pw-label::before {
-        width: 40px;
+    
+    .pw-form-title {
+        margin-bottom: $margin * 4;
+        margin-top: 0;
         text-align: center;
-        border: 1px solid $gray-5;
-        background: $gray-D;
-        display: block;
     }
-
-	.pw-input {
-		border-radius: 0;
-		padding: $padding;
-        flex-grow: 1;
-        border: 0;
-		background: $gray-E;
-
-		&:focus, &:focus ~ .pw-label {
-			color: $primary-darker-color;
-		}
-
-		&:invalid {
-			outline: 0;
-		}
-	}
-
-    .pw-submit {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        -op-appearance: none;
-        background: $white;
-        margin-top: $margin;
-        padding: $padding $padding * 4;
-        align-self: center;
+    
+    .pw-form-item {
+        color: $primary_gray;
+        padding: $padding;
+        border-radius: 5px;
+        border: 2px solid;
+        outline: 0;
+        margin-bottom: $margin;
+        font-size: 0.8rem;
+        align-self: stretch;
+        
+        &:focus {
+            color: $primary_dark;
+        }
+    }
+    
+    .pw-form-button {
+        background: $primary_dark;
+        color: white;
+        padding: $padding $padding * 3;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        margin-top: $margin * 2;
+        outline: 0;
+        
+        &:active {
+            background: $primary_gray;
+        }
+    }
+    
+    .pw-form-link {
+        text-align: center;
+        color: $primary_gray;
+        font-size: 0.8rem;
+        margin-top: $margin * 4;
+    }
+    
+    @include from ('tablet') {
+        padding: $padding * 6 $padding * 12;
     }
 }
