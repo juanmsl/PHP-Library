@@ -4,8 +4,7 @@ require_once("global.php");
 define('PAGE_ID', "index");
 
 if(LOGGED_IN) {
-    header("Location: " . HOME);
-	exit;
+    Core::Redirect(HOME);
 }
 
 include(PAGES . "index.php");

@@ -14,26 +14,28 @@ define('CWD',           dirname(__FILE__) . DS);
 define('CLASSES',       CWD . "_classes" . DS);
 define('INCLUDES',      CWD . '_includes' . DS);
 define('PAGES',         CWD . '_pages' . DS);
-define('RESOURCES',     CWD . "_resources" . DS);
+define('RESOURCES',     DS . "_resources" . DS);
+define('SERVICES',		DS . "_services" . DS);
 define('SELF_PAGE', 	$_SERVER["PHP_SELF"]);
 define('SITE_NAME',     "Biblioteca PUJA");
 define('LANGUAGE',      "es");
 define('THEME_COLOR',   "#0D91CF");
+define('DEBUG',			true);
 
 // ****************************************************************************
 
-include(CLASSES . "mysql.php");
-include(CLASSES . "core.php");
+include_once(CLASSES . "core.php");
 
 $CORE = Core::Instance();
-$DB = new MySQL($CORE, MYSQL_HOSTNAME, MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
-$DB->connect();
+Core::db()->connect();
 
 // ****************************************************************************
 
 define('INDEX', 		WWW . "/");
-define('REGISTRO',		WWW . "/signup");
+define('SIGNUP',		WWW . "/signup");
 define('HOME',			WWW . "/home");
+
+define('CHECK',			WWW . "/security_check.php");
 
 // ****************************************************************************
 
@@ -41,16 +43,20 @@ $global["TITLE"] =      SITE_NAME;
 
 // ****************************************************************************
 
+include_once(CLASSES . "user.php");
+
+// ****************************************************************************
+
 if (isset($_SESSION['USER_NAME']) && isset($_SESSION['USER_PASS'])) {
 	$username = $_SESSION['USER_NAME'];
 	$password = $_SESSION['USER_PASS'];
-	$usersql = $DB->doQuery("SELECT * FROM usuario WHERE username=$username AND password=$password");
-	$myrow = mysqli_fetch_assoc($usersql);
-	if (mysqli_num_rows($usersql) == 1) {
+	$user = User::get($username, $password, false);
+	if ($user !== null) {
 		define('LOGGED_IN', true);
-		define('USER_NAME', $username);
+		define('USER_ID', $user->id);
+		define('USER_NAME', $user->username);
 		define('USER_HASH', $password);
-		define('USER_ID', $myrow["id"]);
+		define('IS_ADMIN', $user->type === "admin");
 	} else {
 		@session_destroy();
 		header("Location: " . INDEX);
@@ -58,11 +64,12 @@ if (isset($_SESSION['USER_NAME']) && isset($_SESSION['USER_PASS'])) {
 	}
 } else {
 	define('LOGGED_IN', false);
-	define('USER_NAME', 'Invitado');
+	define('USER_NAME', null);
 	define('USER_HASH', null);
-	define('USER_ID', -1);
+	define('USER_ID', null);
+	define('IS_ADMIN', false);
 }
 
-$CORE->CheckCookies();
+Core::CheckCookies();
 
 ?>

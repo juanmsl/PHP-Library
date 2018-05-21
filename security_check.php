@@ -3,8 +3,7 @@
 require_once("global.php");
 
 if (!LOGGED_IN) {
-	header("Location: " . INDEX);
-	exit;
+	Core::redirect(INDEX);
 }
 
 if (isset($_SESSION['set_cookies']) && $_SESSION['set_cookies'] === true) {
@@ -14,7 +13,7 @@ if (isset($_SESSION['set_cookies']) && $_SESSION['set_cookies'] === true) {
 	unset($_SESSION['set_cookies']);
 }
 
-$redirMode = HOME;
+$redirMode = INDEX;
 
 if (isset($_SESSION['page-redirect'])) {
 	$redirMode = $_SESSION['page-redirect'];

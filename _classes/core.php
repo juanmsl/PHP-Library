@@ -1,8 +1,11 @@
 <?php
 
+include_once("mysql.php");
+
 class Core {
 	public $execStart;
-	static $instance = null;
+	private static $instance = null;
+	public static $mysqlcon;
 	
 	public static function instance() {
         if (!isset(static::$instance)) {
@@ -10,13 +13,18 @@ class Core {
         }
         return static::$instance;
     }
+    
+    public static function db() {
+    	return static::$mysqlcon;
+    }
 	
 	private function __construct() {
 		$this->execStart = microtime(true);
 		$this->ParseConfig();
+		static::$mysqlcon = new MySQL($this, MYSQL_HOSTNAME, MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DATABASE);
 	}
 	
-	public function ParseConfig() {
+	private function ParseConfig() {
 		$configPath = CLASSES . 'config.php';
 		if (!file_exists($configPath)) {
 			$this->systemError('Configuration Error', 'The configuration file could not be located at ' . $configPath);
@@ -34,11 +42,13 @@ class Core {
 	}
 	
 	public static function SystemError($title, $text) {
-		echo "<h1>ERROR</h1> \n <!-- \n $title \n\n  $text \n -->";
+		if(DEBUG) {
+			echo "<h1>ERROR</h1> \n <!-- \n $title \n\n  $text \n -->";
+		}
 		exit;
 	}
 	
-	public function UberHash($input) {
+	public static function Hash($input) {
 		//return $input;
 		//return base64_encode($input);
 		return sha1($input);
@@ -52,7 +62,7 @@ class Core {
 		return $_SERVER["REMOTE_ADDR"];
 	}
 	
-	public function CheckCookies() {
+	public static function CheckCookies() {
 		if (LOGGED_IN) {
 			return;
 		}
@@ -71,6 +81,64 @@ class Core {
 				exit;
 			}
 		}
+	}
+	
+	public static function Clean($strInput, $ignoreHtml = false, $nl2br = false, $encoding = "UTF-8") {
+		$strInput = stripslashes(trim($strInput));
+		
+		if (!$ignoreHtml) {
+			$strInput = htmlspecialchars($strInput, ENT_QUOTES | ENT_HTML5, $encoding);
+		}
+		
+		if ($nl2br) {
+			$strInput = nl2br($strInput);
+		}
+		
+		return $strInput;
+	}
+	
+	public static function Redirect($url) {
+		header("Location: " . $url);
+		exit;
+	}
+	
+	public static function ValidatePassword($password, $passwordconfirm) {
+		$passwordErr = "";
+		$validPassword = true;
+		
+		if (strlen($password) < '8') {
+			$validPassword = false;
+			$passwordErr .= "La contraseña debe tener minimo 8 caracteres". ENDL;
+		}
+		
+		if(!preg_match("#[0-9]+#", $password)) {
+			$validPassword = false;
+			$passwordErr .= "La contraseña debe tener al menos un número" . ENDL;
+		}
+		
+		if($password !== $passwordconfirm) {
+			$validPassword = false;
+			$passwordErr .= "Las contraseñas no coinciden" . ENDL;
+		}
+		
+		return array($validPassword, $passwordErr);
+	}
+	
+	public static function ValidateEmail($email, $emailconfirm) {
+		$emailErr = "";
+		$validEmail = true;
+		
+		if(!preg_match("/[a-zA-Z0-9_-.+]+@[a-zA-Z0-9-]+.[a-zA-Z]+/", $email)) {
+			$validEmail = false;
+			$emailErr .= "No es un correo valido" . ENDL;
+		} 
+		
+		if($email !== $emailconfirm) {
+			$validEmail = false;
+			$emailErr .= "Los correos no coinciden" . ENDL;
+		}
+		
+		return array($validEmail, $emailErr);
 	}
 }
 

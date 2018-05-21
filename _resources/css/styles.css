@@ -2135,6 +2135,8 @@ a { text-decoration: none; color: inherit; }
 
 .pw-form .pw-form-button:active { background: #8492A6; }
 
+.pw-form .pw-form-message { font-size: 0.7rem; padding: 5px 0; text-align: center; max-width: 200px; margin: 0 auto; }
+
 .pw-form .pw-form-link { text-align: center; color: #8492A6; font-size: 0.8rem; margin-top: 40px; }
 
 @media all and (min-width: 768px) { .pw-form { padding: 60px 120px; } }
