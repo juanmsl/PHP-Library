@@ -34,6 +34,12 @@ Core::db()->connect();
 define('INDEX', 		WWW . "/");
 define('SIGNUP',		WWW . "/signup");
 define('HOME',			WWW . "/home");
+define('ROOMS',			WWW . "/rooms");
+define('EVENTS',		WWW . "/events");
+define('CONTROL',		WWW . "/control");
+define('REQUESTS',		WWW . "/requests");
+define('RETURNBOOK',	WWW . "/return");
+define('SIGNOUT',		WWW . "/signout");
 
 define('CHECK',			WWW . "/security_check.php");
 
@@ -56,7 +62,7 @@ if (isset($_SESSION['USER_NAME']) && isset($_SESSION['USER_PASS'])) {
 		define('USER_ID', $user->id);
 		define('USER_NAME', $user->username);
 		define('USER_HASH', $password);
-		define('IS_ADMIN', $user->type === "admin");
+		define('USER_IS_ADMIN', $user->type === "admin");
 	} else {
 		@session_destroy();
 		header("Location: " . INDEX);
@@ -67,7 +73,7 @@ if (isset($_SESSION['USER_NAME']) && isset($_SESSION['USER_PASS'])) {
 	define('USER_NAME', null);
 	define('USER_HASH', null);
 	define('USER_ID', null);
-	define('IS_ADMIN', false);
+	define('USER_IS_ADMIN', false);
 }
 
 Core::CheckCookies();

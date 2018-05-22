@@ -7,7 +7,7 @@ if (!LOGGED_IN) {
 }
 
 if (isset($_SESSION['set_cookies']) && $_SESSION['set_cookies'] === true) {
-	setcookie('rememberme', 'true', time() + 2592000, '/');
+	setcookie('rememberme', true, time() + 2592000, '/');
 	setcookie('rememberme_token', USER_HASH, time() + 2592000, '/');
 	setcookie('rememberme_name', USER_NAME, time() + 2592000, '/');
 	unset($_SESSION['set_cookies']);

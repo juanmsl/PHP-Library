@@ -1,8 +1,9 @@
-.pw-header {
-	background: image("cover.jpg") center center / cover fixed no-repeat;
-	color: white;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding: $padding * 15 $padding * 5;
+.pw-form-container {
+	background: white;
+	padding: $padding * 3 $padding * 4;
+    margin: $margin * 2;
+    
+    @include from ('tablet') {
+        padding: $padding * 6 $padding * 12;
+    }
 }

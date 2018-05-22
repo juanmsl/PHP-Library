@@ -1,0 +1,90 @@
+.pw-navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: white;
+    margin-bottom: $margin;
+    transition: all 0.3s ease;
+    
+    .pw-navbar-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    @include from (laptop) {
+        .pw-navbar-content {
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+    
+    @include from(large) {
+		.pw-navbar-content {
+            width: 60%;
+            margin: 0 auto;
+        }
+	}
+    
+    .pw-navbar-header {
+        display: flex;
+        align-items: center;
+        padding: $padding;
+    }
+    
+    @include from (laptop) {
+        .pw-navbar-header {
+            padding-left: 0;
+        }
+    }
+    
+    .pw-navbar-logo {
+        width: 36px;
+    }
+    
+    .pw-navbar-line {
+        width: 1px;
+        align-self: stretch;
+        background: $primary_dark;
+        margin: 0 $margin;
+    }
+    
+    .pw-navbar-title {
+        margin: 0;
+        color: inherit;
+    }
+    
+    .pw-navbar-items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-self: stretch;
+    }
+    
+    .pw-navbar-item {
+        display: flex;
+        font-size: 0.8rem;
+        
+        a {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 0 $padding * 2;
+        }
+        
+        &.active, &:hover {
+            background: $primary_gray;
+            color: white;
+        }
+    }
+    
+    .pw-navbar-sign-out {
+        font-size: 1.2rem;
+    }
+    
+    &.pw-navbar_scroll {
+        background: $primary_dark;
+        color: white;
+    }
+}
