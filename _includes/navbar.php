@@ -1,12 +1,11 @@
 <nav class="pw-navbar" id="pw-navbar">
     <section class="pw-navbar-content">
-        <section class="pw-navbar-header">
+        <a href="<?php echo HOME; ?>" class="pw-navbar-header">
             <img src="<?php echo RESOURCES . "images/favicon.png"; ?>" class="pw-navbar-logo"></img>
             <span class="pw-navbar-line"></span>
             <h6 class="pw-navbar-title"><?php echo SITE_NAME; ?></h6>
-        </section>
+        </a>
         <ul class="pw-navbar-items">
-            <li class="pw-navbar-item <?php echo PAGE_ID == "home" ? "active" : ""; ?>"><a href="<?php echo HOME; ?>">Home</a></li>
             <li class="pw-navbar-item <?php echo PAGE_ID == "rooms" ? "active" : ""; ?>"><a href="<?php echo ROOMS; ?>">Salas</a></li>
             <li class="pw-navbar-item <?php echo PAGE_ID == "events" ? "active" : ""; ?>"><a href="<?php echo EVENTS; ?>">Eventos</a></li>
             <?php if(USER_IS_ADMIN) { ?>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="<?php echo LANGUAGE; ?>">
-    <?php $global["TITLE"] .= " - Home"; ?>
     <?php include(INCLUDES . "head.php") ?>
     <body>
         <section class="pw-cover">

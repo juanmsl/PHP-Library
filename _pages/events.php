@@ -5,7 +5,7 @@
     <body>
         <?php include(INCLUDES . "navbar.php"); ?>
         <main class="maincontent">
-            <?php echo PAGE_ID; ?>
+            <h1 class="pw-title">Eventos</h1>
         </main>
         <?php include(INCLUDES . "footer.php"); ?>
     </body>

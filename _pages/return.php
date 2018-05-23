@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="<?php echo LANGUAGE; ?>">
-    <?php $global["TITLE"] .= " - Eventos"; ?>
+    <?php $global["TITLE"] .= " - Devoluciones"; ?>
     <?php include(INCLUDES . "head.php") ?>
     <body>
         <?php include(INCLUDES . "navbar.php"); ?>
         <main class="maincontent">
-            <?php echo PAGE_ID; ?>
+            <h1 class="pw-title">Devolución</h1>
         </main>
         <?php include(INCLUDES . "footer.php"); ?>
     </body>
