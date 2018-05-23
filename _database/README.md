@@ -1,1 +1,4 @@
-[Diagram](diagram_EER.png)
+# Database
+
+## EER diagram
+![Diagram](diagram_EER.png)
