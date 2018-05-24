@@ -16,13 +16,14 @@ class Floor {
         
         $query = "
             SELECT id, tv, number, floor_id, (
-                select !count(rr.id)
+                select !count(rr.id) as available
                 from room_reservation rr
                 where (
                     	rr.date_reservation <= timestamp('$time')
                     	and timestamp('$time') <= DATE_ADD(rr.date_reservation , INTERVAL rr.time HOUR )
                 	)
                  	and rr.room_id = r.id
+                 	and rr.status = 'approved'
                 ) as available
             FROM room r
             WHERE floor_id = '$floor_id' " .

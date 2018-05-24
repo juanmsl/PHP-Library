@@ -10,15 +10,17 @@ const getJSON = function(serializedArray) {
 
 let navbar = document.getElementById("pw-navbar");
 
-window.onscroll = function() {
-    let distance = window.scrollY;
-    if(distance > 0) {
-        navbar.classList.add("pw-navbar_scroll");
-    } else {
-        navbar.classList.remove("pw-navbar_scroll");
-    }
-};
-
+if(navbar) {
+    window.onscroll = function() {
+        let distance = window.scrollY;
+        if(distance > 0) {
+            navbar.classList.add("pw-navbar_scroll");
+        } else {
+            navbar.classList.remove("pw-navbar_scroll");
+        }
+    };
+}
+    
 
 let button = $('.modal-reserve-room');
 let button_target = $('#modal-reserv-room-target');
@@ -60,9 +62,9 @@ if(button && button_target && button_close && reserve_form) {
                 var response = JSON.parse(msg);
                 console.log(response);
                 message_form.val(response.message);
-                if(response.status) {
-                    //button_close.click();
-                    console.log("click");
+                if(response.success) {
+                    console.log("js 65 click");
+                    window.location = "/rooms";
                 }
             },
             error: function() {
