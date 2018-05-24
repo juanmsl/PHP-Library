@@ -50,6 +50,7 @@ $global["TITLE"] =      SITE_NAME;
 // ****************************************************************************
 
 include_once(CLASSES . "user.php");
+include_once(CLASSES . "floor.php");
 
 // ****************************************************************************
 
@@ -57,11 +58,11 @@ if (isset($_SESSION['USER_NAME']) && isset($_SESSION['USER_PASS'])) {
 	$username = $_SESSION['USER_NAME'];
 	$password = $_SESSION['USER_PASS'];
 	$user = User::get($username, $password, false);
-	if ($user !== null) {
+	if ($user) {
 		define('LOGGED_IN', true);
 		define('USER_ID', $user->id);
 		define('USER_NAME', $user->username);
-		define('USER_HASH', $password);
+		define('USER_HASH', $user->password);
 		define('USER_IS_ADMIN', $user->type === "admin");
 	} else {
 		@session_destroy();

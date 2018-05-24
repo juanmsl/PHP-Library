@@ -1,0 +1,52 @@
+.pw-room-fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: $gutter;
+    
+    @include from(mobile) {
+        grid-template-columns: auto 330px;
+    }
+}
+
+.pw-room-selects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: $gutter;
+}
+
+.pw-room-serch-form {
+    margin-bottom: $margin * 2;
+}
+
+.pw-floor-rooms {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: $gutter * 2;
+    margin-bottom: $margin * 2;
+    
+    @for $i from 0 to 10 {
+        @include from(300px + (200px * $i)) {
+            grid-template-columns: repeat(($i + 2), 1fr);
+        }
+    }
+    
+    .pw-floor-room {
+        border-radius: 5px;
+        border: 1px solid $primary_dark;
+        padding: $padding $padding * 2;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 0.8rem;
+        background: $secondary_gray;
+        
+        span {
+            padding: $padding / 2 0;
+        }
+        
+        .pw-button {
+            margin-top: $margin;
+        }
+    }
+}

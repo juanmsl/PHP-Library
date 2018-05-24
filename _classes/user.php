@@ -1,31 +1,12 @@
 <?php
 
 class User {
-    public $id;
-    public $username;
-    public $email;
-    public $type;
-    public $passhash;
-    
-    private function __construct($id, $username, $email, $passhash, $type) {
-        $this->id = $id;
-        $this->username = $username;
-        $this->email = $email;
-        $this->type = $type;
-        $this->passhash = $passhash;
-    }
     
     public static function exists($username, $email) {
         $username = Core::Clean($username);
         $email = Core::Clean($email);
         
-        $row = Core::db()->evaluate("SELECT * FROM user WHERE username='$username' OR email='$email';");
-        
-        $user = null;
-        if($row) {
-            $user = new User($row["id"], $row["username"], $row["email"], $row["password"], $row["type"]);
-        }
-        return $user;
+        return Core::db()->evaluate("SELECT * FROM user WHERE username='$username' OR email='$email';");
     }
     
     public static function get($entry, $password, $gethash = true) {
@@ -35,13 +16,7 @@ class User {
             $password = Core::Hash($password);
         }
         
-        $row = Core::db()->evaluate("SELECT * FROM user WHERE (username='$entry' OR email='$entry') AND password='$password';");
-        
-        $user = null;
-        if($row) {
-            $user = new User($row["id"], $row["username"], $row["email"], $row["password"], $row["type"]);
-        }
-        return $user;
+        return Core::db()->evaluate("SELECT * FROM user WHERE (username='$entry' OR email='$entry') AND password='$password';");
     }
     
     public static function create($username, $email, $password, $type, $gethash = true) {

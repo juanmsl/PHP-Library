@@ -11,7 +11,7 @@ if(isset($_POST["login-form"])) {
     
     if($user) {
         $_SESSION['USER_NAME'] = $user->username;
-		$_SESSION['USER_PASS'] = $user->passhash;
+		$_SESSION['USER_PASS'] = $user->password;
 		$_SESSION['set_cookies'] = true;
 		
 		Core::Redirect(CHECK);

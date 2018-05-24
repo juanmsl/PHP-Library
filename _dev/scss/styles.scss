@@ -25,12 +25,16 @@
 @import 'components/footer';
 @import 'components/loading';
 @import 'components/navbar';
+@import 'components/modal';
 
 // Modules
 @import 'modules/maincontent';
 @import 'modules/covers';
 @import 'modules/titles';
+@import 'modules/buttons';
+@import 'modules/assets';
 
 // Pages
 @import 'pages/index';
 @import 'pages/home';
+@import 'pages/rooms';

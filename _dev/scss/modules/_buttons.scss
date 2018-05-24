@@ -1,0 +1,24 @@
+.pw-button {
+    background: $primary_dark;
+    color: white;
+    padding: $padding $padding * 6;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    outline: 0;
+    border: 2px solid $primary_dark;
+    
+    &:active {
+        background: $primary_gray;
+    }
+    
+    &.thin {
+        padding: $padding / 2 $padding * 2;
+        font-size: 0.8rem;
+    }
+    
+    &.transparent {
+        background: $primary_gray;
+        color: inherit;
+        border-width: 1px;
+    }
+}

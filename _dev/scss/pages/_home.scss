@@ -11,18 +11,12 @@
     .pw-home-logo {
         width: 150px;
         margin: 0 auto;
+        margin-bottom: $margin * 8;
         display: block;
         
         @include from(mobile) {
             width: 250px;
         }
-    }
-    
-    .pw-horizontal-line {
-        height: 3px;
-        background: $primary_gray;
-        width: 100%;
-        margin: $margin * 8 0 $margin * 2;
     }
     
     .pw-home-fields {
@@ -31,7 +25,7 @@
         grid-gap: $gutter;
         
         @include from(mobile) {
-            grid-template-columns: minmax(150px, 400px) 300px;
+            grid-template-columns: minmax(150px, 400px) 330px;
         }
     }
     

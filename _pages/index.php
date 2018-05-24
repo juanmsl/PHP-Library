@@ -25,5 +25,5 @@
         
         <?php include(INCLUDES . "footer.php") ?>
     </body>
-    <script src="<?php echo RESOURCES . "js/scripts.js"; ?>"></script>
+    <?php include(INCLUDES . "scripts.php"); ?>
 </html>

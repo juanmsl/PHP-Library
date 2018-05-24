@@ -14,8 +14,16 @@
         text-align: center;
     }
     
+    .pw-form-label {
+        font-size: 0.8rem;
+        padding: $padding * 2 0 $padding;
+        color: $primary_gray;
+    }
+    
     .pw-form-item {
-        -webkit-appearence: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
         background: inherit;
         color: $primary_gray;
         padding: $padding;
@@ -63,5 +71,19 @@
     
     .pw-form-center {
         align-self: center;
+    }
+    
+    &.inline {
+        flex-direction: row;
+        justify-content: center;
+        
+        .pw-form-item {
+            margin-bottom: 0;
+        }
+        
+        .pw-form-button {
+            margin-top: 0;
+            margin-left: $margin;
+        }
     }
 }

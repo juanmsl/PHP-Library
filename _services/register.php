@@ -20,7 +20,7 @@ if(isset($_POST["register-form"])) {
             $user = User::create($username, $email, $password, $type, true);
             if($user) {
                 $_SESSION['USER_NAME'] = $user->username;
-    			$_SESSION['USER_PASS'] = $user->passhash;
+    			$_SESSION['USER_PASS'] = $user->password;
     			$_SESSION['set_cookies'] = true;
     			
     			Core::Redirect(CHECK);

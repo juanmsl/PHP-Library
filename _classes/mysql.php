@@ -55,11 +55,10 @@ class MySQL {
 		return $this->link->error;
 	}
 	
-	public function evaluate($query, $i = 0) {
+	public function evaluate($query) {
 		if($this->IsConnected()) {
 			$result = $this->doQuery($query);
-			$row = $result->fetch_assoc();
-			return $row;
+			return $result->fetch_object();
 		} else {
 			$this->error('Could not process query, no active db connection detected..');
 		}
