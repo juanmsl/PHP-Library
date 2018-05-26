@@ -2129,7 +2129,7 @@ a { text-decoration: none; color: inherit; }
 
 .pw-form .pw-form-label { font-size: 0.8rem; padding: 20px 0 10px; color: #8492A6; }
 
-.pw-form .pw-form-item { -webkit-appearance: none; -moz-appearance: none; appearance: none; background: inherit; color: #8492A6; padding: 10px; border-radius: 5px; border: 2px solid; outline: 0; margin-bottom: 10px; font-size: 0.8rem; -ms-flex-item-align: stretch; align-self: stretch; }
+.pw-form .pw-form-item { -webkit-appearance: none; -moz-appearance: none; appearance: none; background: white; color: #8492A6; padding: 10px; border-radius: 5px; border: 2px solid; outline: 0; margin-bottom: 10px; font-size: 0.8rem; -ms-flex-item-align: stretch; align-self: stretch; }
 
 .pw-form .pw-form-item:focus { color: #45525F; }
 
@@ -2220,7 +2220,9 @@ a { text-decoration: none; color: inherit; }
 
 .pw-cover { background: url("../images/cover.jpeg") center center/cover fixed no-repeat; min-height: 100vh; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
-.pw-title { padding-bottom: 10px; border-bottom: 1px solid #8492A6; margin-bottom: 20px; }
+.pw-title { padding-bottom: 10px; border-bottom: 3px solid; margin-bottom: 20px; }
+
+.pw-subtitle { padding-bottom: 10px; border-bottom: 2px solid; margin-bottom: 20px; }
 
 .pw-button { background: #45525F; color: white; padding: 10px 60px; border-radius: 5px; font-size: 0.8rem; outline: 0; border: 2px solid #45525F; }
 
@@ -2228,7 +2230,7 @@ a { text-decoration: none; color: inherit; }
 
 .pw-button.thin { padding: 5px 20px; font-size: 0.8rem; }
 
-.pw-button.transparent { background: #8492A6; color: inherit; border-width: 1px; }
+.pw-button.transparent { background: #dde1e6; color: inherit; border-width: 1px; }
 
 .pw-horizontal-line { height: 1px; background: #8492A6; width: 100%; margin: 20px 0; }
 
@@ -2289,5 +2291,15 @@ a { text-decoration: none; color: inherit; }
 .pw-floor-rooms .pw-floor-room span { padding: 5px 0; }
 
 .pw-floor-rooms .pw-floor-room .pw-button { margin-top: 10px; }
+
+.pw-requests-columns .pw-request-column-content { display: grid; grid-auto-flow: column; grid-gap: 10px; overflow-x: auto; width: 100%; }
+
+.pw-requests-columns .pw-request { padding: 0 20px 30px; }
+
+.pw-requests-columns .pw-request:first-child { padding-left: 0; }
+
+.pw-requests-columns .pw-request:last-child { padding-right: 0; }
+
+.pw-requests-columns .pw-request-buttons { display: grid; grid-gap: 10px; grid-auto-flow: column; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,5 +1,11 @@
 .pw-title {
     padding-bottom: $padding;
-    border-bottom: 1px solid $primary_gray;
+    border-bottom: 3px solid;
+    margin-bottom: $margin * 2;
+}
+
+.pw-subtitle {
+    padding-bottom: $padding;
+    border-bottom: 2px solid;
     margin-bottom: $margin * 2;
 }

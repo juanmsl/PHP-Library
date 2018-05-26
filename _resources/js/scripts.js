@@ -7,7 +7,6 @@ const getJSON = function(serializedArray) {
     return data;
 }
 
-
 let navbar = document.getElementById("pw-navbar");
 
 if(navbar) {

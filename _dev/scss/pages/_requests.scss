@@ -1,0 +1,31 @@
+.pw-requests-columns {
+    
+    .pw-requests-column {
+    }
+    
+    .pw-request-column-content {
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: $gutter;
+        overflow-x: auto;
+        width: 100%;
+    }
+    
+    .pw-request {
+        padding: 0 $padding * 2 $padding * 3;
+        
+        &:first-child {
+            padding-left: 0;
+        }
+        
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+    
+    .pw-request-buttons {
+        display: grid;
+        grid-gap: $gutter;
+        grid-auto-flow: column;
+    }
+}

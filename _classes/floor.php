@@ -8,6 +8,9 @@ class Floor {
     
     public static function getRoomsFloor($floor_id, $time, $tv = "", $available = "") {
         $floor_id = Core::Clean($floor_id);
+        $tv = Core::Clean($tv);
+        $available = Core::Clean($available);
+        $time = Core::Clean($time);
         
         $extra = "";
         

@@ -140,6 +140,10 @@ class Core {
 		
 		return array($validEmail, $emailErr);
 	}
+	
+	public static function FormatDate($date, $format = "Y-m-d\TH:i") {
+		return date($format, $date);
+	}
 }
 
 ?>

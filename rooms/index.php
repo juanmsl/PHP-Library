@@ -7,7 +7,7 @@ if(!LOGGED_IN) {
     Core::Redirect(INDEX);
 }
 
-$time = date("Y-m-d\TH:i", time());
+$time = Core::FormatDate(time());
 $tv = "n";
 $available = "n";
 

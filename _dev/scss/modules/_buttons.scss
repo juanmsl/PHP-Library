@@ -17,7 +17,7 @@
     }
     
     &.transparent {
-        background: $primary_gray;
+        background: lighten($primary_gray, 30);
         color: inherit;
         border-width: 1px;
     }
