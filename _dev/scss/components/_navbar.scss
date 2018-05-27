@@ -1,10 +1,12 @@
 .pw-navbar {
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     left: 0;
     background: white;
     margin-bottom: $margin;
     transition: all 0.3s ease;
+    z-index: 1000;
     
     .pw-navbar-content{
         display: flex;

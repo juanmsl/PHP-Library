@@ -33,9 +33,12 @@
 @import 'modules/titles';
 @import 'modules/buttons';
 @import 'modules/assets';
+@import 'modules/notfound';
 
 // Pages
 @import 'pages/index';
 @import 'pages/home';
+@import 'pages/books';
 @import 'pages/rooms';
 @import 'pages/requests';
+@import 'pages/equipment';

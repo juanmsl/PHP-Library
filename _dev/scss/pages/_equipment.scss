@@ -1,0 +1,32 @@
+.pw-equipments-gallery {
+    
+    display: grid;
+    grid-gap: $gutter * 4;
+    grid-template-columns: repeat(1, 1fr);
+    margin: $margin * 3 0;
+    
+    @for $i from 0 to 10 {
+        @include from(500px + (500px * $i)) {
+            grid-template-columns: repeat(($i + 2), 1fr);
+        }
+    }
+    
+    .pw-equipments-equipment {
+        
+    }
+    
+    .pw-equipments-equipment-picture {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .pw-equipments-equipment-item {
+        margin: 0;
+        font-size: 0.8em;
+    }
+    
+    .pw-button {
+        margin-top: $margin;
+    }
+}

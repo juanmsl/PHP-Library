@@ -9,7 +9,7 @@
             <section class="pw-requests-columns">
                 <?php foreach($requests as $item) { ?>
                     <section class="pw-requests-column">
-                        <h2 class="pw-subtitle"><?php echo $item["title"]; ?></h2>
+                        <h2 class="pw-subtitle"><?php echo $item["title"] . " (" . $item["data"]->num_rows . ")"; ?></h2>
                         <section class="pw-request-column-content">
                             <?php while($request = $item["data"]->fetch_object()) { ?>
                                 <section class="pw-request">

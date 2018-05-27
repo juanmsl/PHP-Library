@@ -6,17 +6,18 @@
 
 .maincontent {
 	flex-grow: 1;
-	margin: $margin;
+	margin: 0 $margin;
 	display: flex;
 	flex-direction: column;
+	min-height: 100vh;
 
 	@include from(laptop) {
 		width: 80%;
-		margin: $margin auto;
+		margin: 0 auto;
 	}
 	
 	@include from(large) {
 		width: 60%;
-		margin: $margin auto;
+		margin: 0 auto;
 	}
 }

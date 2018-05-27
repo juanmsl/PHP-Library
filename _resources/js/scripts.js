@@ -7,15 +7,17 @@ const getJSON = function(serializedArray) {
     return data;
 }
 
-let navbar = document.getElementById("pw-navbar");
+let navbar = $("#pw-navbar");
 
 if(navbar) {
+    $(".maincontent").css("padding-top", navbar.height() + 20 + "px");
+    
     window.onscroll = function() {
         let distance = window.scrollY;
         if(distance > 0) {
-            navbar.classList.add("pw-navbar_scroll");
+            navbar.addClass("pw-navbar_scroll");
         } else {
-            navbar.classList.remove("pw-navbar_scroll");
+            navbar.removeClass("pw-navbar_scroll");
         }
     };
 }

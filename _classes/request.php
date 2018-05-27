@@ -30,7 +30,7 @@ class Request {
             	DATE_FORMAT(date_return, '%Y-%m-%dT%H:%i') as date_return,
             	book_reservation.id as id, time, status, user_id, book_id,
             	username, email, type,
-            	book.name as book_name, edition, pages, isbn, editorial_id, author_id,
+            	book.name as book_name, edition, pages, isbn, editorial_id, author_id, quantity,
             	author.names as author_names, author.surnames as author_surnames,
             	editorial.name as editorial_name
             FROM

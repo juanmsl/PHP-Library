@@ -11,6 +11,10 @@
         background: $primary_gray;
     }
     
+    &.expanded {
+        width: 100%;
+    }
+    
     &.thin {
         padding: $padding / 2 $padding * 2;
         font-size: 0.8rem;

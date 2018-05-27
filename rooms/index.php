@@ -30,6 +30,4 @@ while($floor = $floors->fetch_object()) {
 
 include(PAGES . "rooms.php");
 
-echo "<script>"
-
 ?>

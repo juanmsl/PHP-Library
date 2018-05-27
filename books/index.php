@@ -1,7 +1,7 @@
 <?php
 
 require_once("../global.php");
-define('PAGE_ID', "events");
+define('PAGE_ID', "books");
 
 if(!LOGGED_IN) {
     Core::Redirect(INDEX);
@@ -10,13 +10,13 @@ if(!LOGGED_IN) {
 $field = "";
 $value = "";
 
-if(isset($_GET["search-event"])) {
+if(isset($_GET["search-book"])) {
     $field = $_GET["category"];
     $value = $_GET["search"];
 }
 
-$events = Event::getEvents($field, $value);
+$books = Book::getBooks($field, $value);
 
-include(PAGES . "events.php");
+include(PAGES . "books.php");
 
 ?>

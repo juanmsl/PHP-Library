@@ -1,21 +1,24 @@
-.pw-room-fields {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: $gutter;
-    
-    @include from(mobile) {
-        grid-template-columns: auto 330px;
-    }
-}
 
-.pw-room-selects {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: $gutter;
-}
 
 .pw-room-serch-form {
     margin-bottom: $margin * 2;
+    
+    .pw-room-fields {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: $gutter;
+        flex-grow: 1;
+        
+        @include from(mobile) {
+            grid-template-columns: 1fr 350px;
+        }
+    }
+    
+    .pw-room-selects {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: $gutter;
+    }
 }
 
 .pw-floor-rooms {

@@ -15,6 +15,7 @@ define('CLASSES',       CWD . "_classes" . DS);
 define('INCLUDES',      CWD . '_includes' . DS);
 define('PAGES',         CWD . '_pages' . DS);
 define('RESOURCES',     DS . "_resources" . DS);
+define('MEDIA', 		DS . "_media" . DS);
 define('SERVICES',		DS . "_services" . DS);
 define('SELF_PAGE', 	$_SERVER["PHP_SELF"]);
 define('SITE_NAME',     "Biblioteca PUJA");
@@ -34,9 +35,10 @@ Core::db()->connect();
 define('INDEX', 		WWW . "/");
 define('SIGNUP',		WWW . "/signup");
 define('HOME',			WWW . "/home");
+define('BOOKS',			WWW . "/books");
+define('EQUIPMENT',		WWW . "/equipment");
 define('ROOMS',			WWW . "/rooms");
 define('EVENTS',		WWW . "/events");
-define('CONTROL',		WWW . "/control");
 define('REQUESTS',		WWW . "/requests");
 define('RETURNBOOK',	WWW . "/return");
 define('SIGNOUT',		WWW . "/signout");
@@ -52,6 +54,9 @@ $global["TITLE"] =      SITE_NAME;
 include_once(CLASSES . "user.php");
 include_once(CLASSES . "floor.php");
 include_once(CLASSES . "request.php");
+include_once(CLASSES . "book.php");
+include_once(CLASSES . "equipment.php");
+include_once(CLASSES . "event.php");
 
 // ****************************************************************************
 

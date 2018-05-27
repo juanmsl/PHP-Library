@@ -11,14 +11,14 @@ DROP TABLE IF EXISTS `room_reservation` ;
 DROP TABLE IF EXISTS `equipment_reservation` ;
 DROP TABLE IF EXISTS `book_reservation` ;
 DROP TABLE IF EXISTS `event_registry` ;
+DROP TABLE IF EXISTS `event` ;
 DROP TABLE IF EXISTS `user` ;
 DROP TABLE IF EXISTS `room` ;
 DROP TABLE IF EXISTS `floor` ;
 DROP TABLE IF EXISTS `equipment` ;
+DROP TABLE IF EXISTS `book` ;
 DROP TABLE IF EXISTS `editorial` ;
 DROP TABLE IF EXISTS `author` ;
-DROP TABLE IF EXISTS `book` ;
-DROP TABLE IF EXISTS `event` ;
 
 -- -----------------------------------------------------
 -- Table `user`
@@ -181,6 +181,7 @@ CREATE TABLE IF NOT EXISTS `book` (
   `name` VARCHAR(45) NOT NULL,
   `edition` INT NOT NULL,
   `pages` INT NOT NULL,
+  `quantity` INT NOT NULL,
   `ISBN` VARCHAR(45) NOT NULL,
   `editorial_id` INT NOT NULL,
   `author_id` INT NOT NULL,
@@ -278,3 +279,63 @@ CREATE TABLE IF NOT EXISTS `event_registry` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
+-- -----------------------------------------------------
+-- Inserts
+-- -----------------------------------------------------
+
+
+INSERT INTO `floor` (`number`)
+VALUES
+  (-2),
+  (-1),
+  (0),
+  (1),
+  (2),
+  (3),
+  (4);
+
+INSERT INTO `room`(`tv`, `number`, `floor_id`)
+VALUES
+  (0,1,1),
+  (0,2,1),
+  (0,3,1),
+  (0,4,1),
+  (0,5,1),
+  (1,6,1),
+  (1,7,1),
+  (1,8,1),
+  
+  (1,1,2),
+  (1,2,2),
+  (1,3,2),
+  (1,4,2),
+  
+  (0,1,3),
+  (0,2,3),
+  (0,3,3),
+  (0,4,3),
+  
+  (1,1,4),
+  (1,2,4),
+  
+  (1,1,5),
+  (1,2,5),
+  (1,3,5),
+  (1,4,5),
+  (1,5,5),
+  
+  (1,1,6),
+  (1,2,6),
+  (1,3,6),
+  (1,4,6),
+  (1,5,6),
+  
+  (1,1,7),
+  (1,2,7),
+  (1,3,7),
+  (1,4,7),
+  (1,5,7);
+  
+INSERT INTO user (username, email, password, type) VALUES
+('juanmsl', 'juanmsl_pk@hotmail.com', 'f3ba381b6baef526bf70ff220b1da4906989224b', 'admin'),
+('luisdzc', 'luisdzc@gmail.com', 'f3ba381b6baef526bf70ff220b1da4906989224b', 'guest');

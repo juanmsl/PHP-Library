@@ -74,16 +74,29 @@
     }
     
     &.inline {
-        flex-direction: row;
-        justify-content: center;
+        
+        .pw-form-fields {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: $gutter;
+            flex-grow: 1;
+            
+            @include from(mobile) {
+                grid-template-columns: 1fr 150px;
+            }
+        }
         
         .pw-form-item {
             margin-bottom: 0;
         }
         
-        .pw-form-button {
-            margin-top: 0;
-            margin-left: $margin;
+        @include from(550px) {
+            flex-direction: row;
+            
+            .pw-form-button {
+                margin-top: 0;
+                margin-left: $margin;
+            }
         }
     }
 }

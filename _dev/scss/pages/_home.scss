@@ -1,8 +1,9 @@
 .pw-home {
-    margin: auto 0;
     padding: $padding * 10 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    
     
     @include from(mobile) {
         margin: auto;

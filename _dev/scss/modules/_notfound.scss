@@ -1,0 +1,17 @@
+.not-found {
+    background: $secondary_gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: $padding * 5;
+    margin-top: $margin * 2;
+        color: $primary_dark;
+    
+    &::before {
+        content: '\f2d6';
+        font-family: FontAwesome;
+        font-size: 7rem;
+    }
+}
