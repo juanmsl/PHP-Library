@@ -67,6 +67,37 @@ class Request {
         
         return Core::db()->doQuery($query);
     }
+    
+    private static function createReservationDetail($date_reservation, $time, $user_id) {
+        $date_reservation = Core::Clean($date_reservation);
+        $time = Core::Clean($time);
+        $user_id = Core::Clean($user_id);
+        
+        $reservation_detail = "
+            INSERT INTO reservation_detail (date_reservation, time, user_id, item)
+            VALUES ('$date_reservation', '$time', '$user_id', 'room');
+        ";
+        
+        return Core::db()->doQuery($reservation_detail);
+    }
+    
+    public static function createRoomReservation($date_reservation, $time, $user_id, $room_id) {
+        $room_id = Core::Clean($room_id);
+        
+        $result = static::createReservationDetail($date_reservation, $time, $user_id);
+        
+        if($result) {
+            $reservation_detail_id = Core::db()->getLastIndex();
+            $room_reservation = "
+                INSERT INTO room_reservation (reservation_detail_id, room_id)
+                VALUES ('$reservation_detail_id', '$room_id');
+            ";
+            
+            $result = Core::db()->doQuery($room_reservation);
+        }
+        
+        return $result;
+    }
 }
 
 ?>

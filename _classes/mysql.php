@@ -55,6 +55,10 @@ class MySQL {
 		return $this->link->error;
 	}
 	
+	public function getLastIndex() {
+		return $this->link->insert_id;
+	}
+	
 	public function evaluate($query) {
 		if($this->IsConnected()) {
 			$result = $this->doQuery($query);

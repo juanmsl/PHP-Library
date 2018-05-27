@@ -34,6 +34,7 @@ class Floor {
             		        	room_reservation JOIN reservation_detail ON (reservation_detail.id = room_reservation.reservation_detail_id)
             		     	WHERE
             		        	room_reservation.room_id = room.id
+            		        	AND reservation_detail.status = 'approved'
             		        	AND (
             		                reservation_detail.date_reservation <= TIMESTAMP('$time')
             		                AND TIMESTAMP('$time') <= DATE_ADD(reservation_detail.date_reservation , INTERVAL reservation_detail.time HOUR)

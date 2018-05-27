@@ -41,7 +41,7 @@
                             
                             <?php if($room->available) { ?>
                                 <button class="pw-button thin transparent modal-reserve-room"
-                                    room_id="<?php echo $room->id; ?>"
+                                    room_id="<?php echo $room->room_id; ?>"
                                     floor_number="<?php echo $rooms["floor_number"]; ?>"
                                     room_number="<?php echo $room->room_number; ?>">Reservar</button>
                             <?php } ?>

@@ -77,10 +77,10 @@ CREATE TABLE IF NOT EXISTS `reservation_detail` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `date_request` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_reservation` TIMESTAMP NOT NULL,
-  `time` INT NOT NULL,
+  `time` INT NULL,
   `status` ENUM('request', 'approved', 'canceled') NOT NULL DEFAULT 'request',
   `user_id` INT NOT NULL,
-  `item` ENUM('book', 'room', 'equipment') NULL,
+  `item` ENUM('book', 'room', 'equipment') NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_reservation_detail_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_reservation_detail_user1`

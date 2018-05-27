@@ -53,7 +53,6 @@ if(button && button_target && button_close && reserve_form) {
         e.preventDefault();
         let data = $(this).serializeArray();
         let formdata = getJSON(data);
-        console.log(formdata);
         
         $.ajax({
             type: "POST",
@@ -64,7 +63,6 @@ if(button && button_target && button_close && reserve_form) {
                 console.log(response);
                 message_form.val(response.message);
                 if(response.success) {
-                    console.log("js 65 click");
                     window.location = "/rooms";
                 }
             },

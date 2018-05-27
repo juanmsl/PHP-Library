@@ -18,11 +18,13 @@ if(!isset($_POST["request-room-form"])) {
     $user_id = USER_ID;
     $room_id = $_POST["room_id"];
     
-    $query = "INSERT INTO room_reservation (date_reservation, time, user_id, room_id) VALUES ('$date_reservation', '$time', '$user_id', '$room_id');";
+    $result = Request::createRoomReservation($date_reservation, $time, $user_id, $room_id);
     
-    $row = Core::db()->doQuery($query);
     $response->message = "Room reservation created";
-    if(!$row) $response->message = Core::db()->getError();
+    if(!$result) {
+        $response->success = 0;
+        $response->message = Core::db()->getError();
+    }
 }
 
 $myJSON = json_encode($response);
