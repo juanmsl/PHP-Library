@@ -7,14 +7,17 @@ class Request {
         
         $query = "
             SELECT
-            	DATE_FORMAT(date_request, '%Y-%m-%dT%H:%i') as date_request,
-            	DATE_FORMAT(date_reservation, '%Y-%m-%dT%H:%i') as date_reservation,
-            	room_reservation.id as id, time, status, user_id, room_id, username, email, type
-            	tv, room.number as room_number, floor.number as floor_number
+            	DATE_FORMAT(date_request, '%Y-%m-%dT%H:%i') AS date_request,
+            	DATE_FORMAT(date_reservation, '%Y-%m-%dT%H:%i') AS date_reservation,
+            	room_reservation.id AS id, time, status, item, user_id, room_id,
+            	username, email, type
+            	tv, room.number AS room_number,
+            	floor.number AS floor_number
             FROM
-            	room_reservation join user on (room_reservation.user_id = user.id)
-            	join room on (room.id = room_reservation.room_id)
-            	join floor on (room.floor_id = floor.id)
+            	room_reservation JOIN room ON (room.id = room_reservation.room_id)
+            	JOIN floor ON (room.floor_id = floor.id)
+            	JOIN reservation_detail ON (reservation_detail.id = room_reservation.reservation_detail_id)
+            	JOIN user ON (reservation_detail.user_id = user.id)
             WHERE status like '%$status%' ORDER BY date_request;
         ";
         
@@ -26,18 +29,19 @@ class Request {
         
         $query = "
             SELECT
-            	DATE_FORMAT(date_request, '%Y-%m-%dT%H:%i') as date_request,
-            	DATE_FORMAT(date_return, '%Y-%m-%dT%H:%i') as date_return,
-            	book_reservation.id as id, time, status, user_id, book_id,
+            	DATE_FORMAT(date_request, '%Y-%m-%dT%H:%i') AS date_request,
+            	DATE_FORMAT(date_reservation, '%Y-%m-%dT%H:%i') AS date_reservation,
+            	book_reservation.id AS id, time, status, item, user_id, book_id,
             	username, email, type,
             	book.name as book_name, edition, pages, isbn, editorial_id, author_id, quantity,
             	author.names as author_names, author.surnames as author_surnames,
             	editorial.name as editorial_name
             FROM
-            	book_reservation join user on (book_reservation.user_id = user.id)
-            	join book on (book.id = book_reservation.book_id)
-            	join author on (book.author_id = author.id)
-            	join editorial on (book.author_id = author.id)
+            	book_reservation JOIN book on (book.id = book_reservation.book_id)
+            	JOIN author on (book.author_id = author.id)
+            	JOIN editorial on (book.author_id = author.id)
+            	JOIN reservation_detail ON (reservation_detail.id = book_reservation.reservation_detail_id)
+            	JOIN user on (reservation_detail.user_id = user.id)
             WHERE status like '%$status%' ORDER BY date_request;
         ";
         
@@ -49,14 +53,15 @@ class Request {
         
         $query = "
             SELECT
-            	DATE_FORMAT(date_request, '%Y-%m-%dT%H:%i') as date_request,
-            	DATE_FORMAT(date_return, '%Y-%m-%dT%H:%i') as date_return,
-            	equipment_reservation.id as id, time, status, user_id, equipment_id,
+            	DATE_FORMAT(date_request, '%Y-%m-%dT%H:%i') AS date_request,
+            	DATE_FORMAT(date_reservation, '%Y-%m-%dT%H:%i') AS date_reservation,
+            	equipment_reservation.id AS id, time, status, item, user_id, equipment_id,
             	username, email, type,
             	equipment.name as equipment_name, quantity, manufacturer, serial_number
             FROM
-            	equipment_reservation join user on (equipment_reservation.user_id = user.id)
-            	join equipment on (equipment.id = equipment_reservation.equipment_id)
+            	equipment_reservation JOIN equipment on (equipment.id = equipment_reservation.equipment_id)
+            	JOIN reservation_detail ON (reservation_detail.id = equipment_reservation.reservation_detail_id)
+            	JOIN user on (reservation_detail.user_id = user.id)
             WHERE status like '%$status%' ORDER BY date_request;
         ";
         

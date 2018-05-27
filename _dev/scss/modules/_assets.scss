@@ -1,8 +1,12 @@
 .pw-horizontal-line {
-    height: 1px;
-    background: $primary_gray;
+    height: 3px;
+    background: $primary_dark;
     width: 100%;
     margin: $margin * 2 0;
+}
+
+.pw-blue {
+    color: $primary_blue;
 }
 
 .pw-green {

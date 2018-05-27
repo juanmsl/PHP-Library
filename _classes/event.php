@@ -22,7 +22,7 @@ class Event {
         
         $query = "
             SELECT
-            	id, name, date, place, user_admin_id, guest_number
+            	id, name, date, place, guest_number
             FROM
             	event
             $extra;

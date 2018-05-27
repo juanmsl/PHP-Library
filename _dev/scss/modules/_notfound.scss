@@ -6,8 +6,9 @@
     align-items: center;
     text-align: center;
     padding: $padding * 5;
-    margin-top: $margin * 2;
-        color: $primary_dark;
+    margin: $margin * 2 0;
+    color: $primary_dark;
+    flex-grow: 1;
     
     &::before {
         content: '\f2d6';

@@ -6,6 +6,12 @@
         <?php include(INCLUDES . "navbar.php"); ?>
         <main class="maincontent">
             <h1 class="pw-title">Libros</h1>
+            <?php if(USER_IS_ADMIN) { ?>
+                <section class="pw-buttons-container">
+                    <button class="pw-button" id="create-book">Agregar un libro</button>
+                </section>
+                <span class="pw-horizontal-line"></span>
+            <?php } ?>
             <form method="GET" class="pw-form inline">
                 <section class="pw-form-fields">
                     <input type="text" name="search" class="pw-form-item" value="<?php echo $value; ?>" placeholder="Busqueda"/>
@@ -36,6 +42,10 @@
                             <p class="pw-books-book-item"><?php echo $book->quantity; ?> disponibles</p>
                             <p class="pw-books-book-item">ISBN <?php echo $book->isbn; ?></p>
                             <button class="pw-button thin expanded">Solicitar</button>
+                            <?php if(USER_IS_ADMIN) { ?>
+                                <button class="pw-button pw-blue modify-book">Modificar</button>
+                                <button class="pw-button pw-red delete-book">Eliminar</button>
+                            <?php } ?>
                         </arcticle>
                     <?php } ?>
                 </section>

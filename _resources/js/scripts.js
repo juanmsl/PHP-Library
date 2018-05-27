@@ -73,3 +73,23 @@ if(button && button_target && button_close && reserve_form) {
         });
     });
 }
+
+// -------------------------Books
+
+let create_book_button = $("#create-book");
+let modify_book_button = $(".modify-book");
+let delete_book_button = $(".delete-book");
+
+if(create_book_button && modify_book_button && delete_book_button) {
+    create_book_button.on('click', function() {
+        alert($(this).text());
+    });
+    
+    modify_book_button.on('click', function() {
+        alert($(this).text());
+    });
+    
+    delete_book_button.on('click', function() {
+        alert($(this).text());
+    });
+}

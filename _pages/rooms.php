@@ -29,7 +29,7 @@
                 <section class="pw-floor-rooms">
                     <?php while ($room = $rooms["floor_rooms"]->fetch_object()) {?>
                         <section class="pw-floor-room">
-                            <span>Sala <?php echo $room->number; ?></span>
+                            <span>Sala <?php echo $room->room_number; ?></span>
                             <span>
                                 <span class="pwi pwi-television <?php echo ($room->tv ? "pw-green" : "pw-red");?>"></span>
                                 <?php echo ($room->tv ? "Con" : "Sin");?> televisor
@@ -43,7 +43,7 @@
                                 <button class="pw-button thin transparent modal-reserve-room"
                                     room_id="<?php echo $room->id; ?>"
                                     floor_number="<?php echo $rooms["floor_number"]; ?>"
-                                    room_number="<?php echo $room->number; ?>">Reservar</button>
+                                    room_number="<?php echo $room->room_number; ?>">Reservar</button>
                             <?php } ?>
                         </section>
                     <?php } ?>

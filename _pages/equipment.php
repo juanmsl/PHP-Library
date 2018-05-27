@@ -6,6 +6,12 @@
         <?php include(INCLUDES . "navbar.php"); ?>
         <main class="maincontent">
             <h1 class="pw-title">Equipos</h1>
+            <?php if(USER_IS_ADMIN) { ?>
+                <section class="pw-buttons-container">
+                    <button class="pw-button" id="create-equipment">Agregar un equipo</button>
+                </section>
+                <span class="pw-horizontal-line"></span>
+            <?php } ?>
             <form method="GET" class="pw-form inline">
                 <section class="pw-form-fields">
                     <input type="text" name="search" class="pw-form-item" value="<?php echo $value; ?>" placeholder="Busqueda"/>
@@ -32,6 +38,10 @@
                             <p class="pw-equipments-equipment-item">Número serial <?php echo $equipment->serial_number; ?></p>
                             <p class="pw-equipments-equipment-item"><?php echo $equipment->quantity; ?> disponibles</p>
                             <button class="pw-button thin expanded">Solicitar</button>
+                            <?php if(USER_IS_ADMIN) { ?>
+                                <button class="pw-button pw-blue modify-equipment">Modificar</button>
+                                <button class="pw-button pw-red delete-equipment">Eliminar</button>
+                            <?php } ?>
                         </arcticle>
                     <?php } ?>
                 </section>

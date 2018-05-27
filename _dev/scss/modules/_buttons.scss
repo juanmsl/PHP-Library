@@ -1,3 +1,13 @@
+.pw-buttons-container {
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: $gutter * 2;
+    
+    @include from(tablet) {
+        grid-auto-flow: column;
+    }
+}
+
 .pw-button {
     background: $primary_dark;
     color: white;
