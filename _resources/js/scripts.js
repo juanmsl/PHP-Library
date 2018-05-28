@@ -79,8 +79,39 @@ let modify_book_button = $(".modify-book");
 let delete_book_button = $(".delete-book");
 
 if(create_book_button && modify_book_button && delete_book_button) {
+    let modal_book = $("#modal-create-book-target");
+    let message_book = $("#create-book-form-message");
+    
+    $("#modal-create-book-target-close").on('click', function() {
+        modal_book.removeClass('active');
+    });
+    
+    $("#create-book-form").on('submit', function(e) {
+        e.preventDefault();
+        let data = $(this).serializeArray();
+        let formdata = getJSON(data);
+        console.log(formdata);
+        
+        $.ajax({
+            type: "POST",
+            url: "/_services/create_book.php",
+            data: formdata,
+            success: function(msg) {
+                console.log(msg);
+                var response = JSON.parse(msg);
+                console.log(response);
+                message_book.val(response.message);
+                if(response.success) {
+                    window.location = "/books";
+                }
+            },
+            error: function() {
+            }
+        });
+    });
+    
     create_book_button.on('click', function() {
-        alert($(this).text());
+        modal_book.addClass('active');
     });
     
     modify_book_button.on('click', function() {
@@ -88,6 +119,59 @@ if(create_book_button && modify_book_button && delete_book_button) {
     });
     
     delete_book_button.on('click', function() {
+        alert($(this).text());
+    });
+}
+
+
+// -------------------------Equipment
+
+let create_equipment_button = $("#create-equipment");
+let modify_equipment_button = $(".modify-equipment");
+let delete_equipment_button = $(".delete-equipment");
+
+
+if(create_equipment_button && modify_equipment_button && delete_equipment_button) {
+    let modal_equipment = $("#modal-create-equipment-target");
+    let message_equipment = $("#create-equipment-form-message");
+    
+    $("#modal-create-equipment-target-close").on('click', function() {
+        modal_equipment.removeClass('active');
+    });
+    
+    $("#create-equipment-form").on('submit', function(e) {
+        e.preventDefault();
+        let data = $(this).serializeArray();
+        let formdata = getJSON(data);
+        console.log(formdata);
+        
+        $.ajax({
+            type: "POST",
+            url: "/_services/create_equipment.php",
+            data: formdata,
+            success: function(msg) {
+                console.log(msg);
+                var response = JSON.parse(msg);
+                console.log(response);
+                message_equipment.val(response.message);
+                if(response.success) {
+                    window.location = "/equipment";
+                }
+            },
+            error: function() {
+            }
+        });
+    });
+    
+    create_equipment_button.on('click', function() {
+        modal_equipment.addClass('active');
+    });
+    
+    modify_equipment_button.on('click', function() {
+        alert($(this).text());
+    });
+    
+    delete_equipment_button.on('click', function() {
         alert($(this).text());
     });
 }

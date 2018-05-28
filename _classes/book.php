@@ -35,12 +35,29 @@ class Book {
         $query = "
             SELECT
             	book.id AS id, book.name as name, edition, pages, quantity, isbn, editorial_id, author_id,
-            	author.names AS author_names, author.surnames AS author_surnames,
+            	author.name AS author_name,
             	editorial.name AS editorial_name
             FROM
             	book JOIN editorial ON (editorial.id = book.editorial_id)
             	JOIN author ON (author.id = book.author_id)
             $extra;
+        ";
+        
+        return Core::db()->doQuery($query);
+    }
+    
+    public static function create($name, $edition, $pages, $isbn, $editorial_id, $author_id, $quantity) {
+        $name = Core::Clean($name);
+        $edition = Core::Clean($edition);
+        $pages = Core::Clean($pages);
+        $isbn = Core::Clean($isbn);
+        $editorial_id = Core::Clean($editorial_id);
+        $author_id = Core::Clean($author_id);
+        $quantity = Core::Clean($quantity);
+        
+        $query = "
+            INSERT INTO book (name, edition, pages, isbn, editorial_id, author_id, quantity)
+            VALUES ('$name', '$edition', '$pages', '$isbn', '$editorial_id', '$author_id', '$quantity');
         ";
         
         return Core::db()->doQuery($query);

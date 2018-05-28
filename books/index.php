@@ -16,6 +16,8 @@ if(isset($_GET["search-book"])) {
 }
 
 $books = Book::getBooks($field, $value);
+$editorials = Editorial::getAll();
+$authors = Author::getAll();
 
 include(PAGES . "books.php");
 

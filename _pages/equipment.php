@@ -39,14 +39,17 @@
                             <p class="pw-equipments-equipment-item"><?php echo $equipment->quantity; ?> disponibles</p>
                             <button class="pw-button thin expanded">Solicitar</button>
                             <?php if(USER_IS_ADMIN) { ?>
-                                <button class="pw-button pw-blue modify-equipment">Modificar</button>
-                                <button class="pw-button pw-red delete-equipment">Eliminar</button>
+                                <section class="pw-buttons-container">
+                                    <button class="pw-button thin transparent modify-equipment">Modificar</button>
+                                    <button class="pw-button thin transparent delete-equipment">Eliminar</button>
+                                </section>
                             <?php } ?>
                         </arcticle>
                     <?php } ?>
                 </section>
             <?php } ?>
         </main>
+        <?php include(INCLUDES . "modal_create_equipment.php"); ?>
         <?php include(INCLUDES . "footer.php"); ?>
     </body>
     <?php include(INCLUDES . "scripts.php"); ?>

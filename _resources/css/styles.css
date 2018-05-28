@@ -2227,7 +2227,7 @@ a { text-decoration: none; color: inherit; }
 
 .pw-subtitle { padding-bottom: 10px; border-bottom: 2px solid; margin-bottom: 20px; }
 
-.pw-buttons-container { display: grid; grid-auto-flow: row; grid-gap: 20px; }
+.pw-buttons-container { display: grid; grid-auto-flow: row; grid-gap: 10px; grid-auto-columns: 1fr; }
 
 @media all and (min-width: 768px) { .pw-buttons-container { grid-auto-flow: column; } }
 

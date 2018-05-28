@@ -34,6 +34,20 @@ class Equipment {
         return Core::db()->doQuery($query);
     }
     
+    public static function create($name, $serial_number, $manufacturer, $quantity) {
+        $name = Core::Clean($name);
+        $serial_number = Core::Clean($serial_number);
+        $manufacturer = Core::Clean($manufacturer);
+        $quantity = Core::Clean($quantity);
+        
+        $query = "
+            INSERT INTO equipment (name, quantity, manufacturer, serial_number)
+            VALUES ('$name', '$quantity', '$manufacturer', '$serial_number');
+        ";
+        
+        return Core::db()->doQuery($query);
+    }
+    
 }
 
 ?>

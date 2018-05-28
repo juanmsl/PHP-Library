@@ -36,21 +36,24 @@
                     <?php while($book = $books->fetch_object()) { ?>
                         <arcticle class="pw-books-book">
                             <h4 class="pw-books-book-name"><?php echo $book->name; ?></h4>
-                            <p class="pw-books-book-item"><?php echo $book->author_surnames . " " . $book->author_names; ?></p>
-                            <p class="pw-books-book-item"><?php echo "Editorial " . $book->editorial . " - Edición " . $book->edition; ?></p>
+                            <p class="pw-books-book-item"><?php echo $book->author_name; ?></p>
+                            <p class="pw-books-book-item"><?php echo "Editorial " . $book->editorial_name . " - Edición " . $book->edition; ?></p>
                             <p class="pw-books-book-item"><?php echo $book->pages; ?> paginas</p>
                             <p class="pw-books-book-item"><?php echo $book->quantity; ?> disponibles</p>
                             <p class="pw-books-book-item">ISBN <?php echo $book->isbn; ?></p>
                             <button class="pw-button thin expanded">Solicitar</button>
                             <?php if(USER_IS_ADMIN) { ?>
-                                <button class="pw-button pw-blue modify-book">Modificar</button>
-                                <button class="pw-button pw-red delete-book">Eliminar</button>
+                                <section class="pw-buttons-container">
+                                    <button class="pw-button thin transparent modify-book">Modificar</button>
+                                    <button class="pw-button thin transparent delete-book">Eliminar</button>
+                                </section>
                             <?php } ?>
                         </arcticle>
                     <?php } ?>
                 </section>
             <?php } ?>
         </main>
+        <?php include(INCLUDES . "modal_create_book.php"); ?>
         <?php include(INCLUDES . "footer.php"); ?>
     </body>
     <?php include(INCLUDES . "scripts.php"); ?>

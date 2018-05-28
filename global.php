@@ -51,6 +51,8 @@ $global["TITLE"] =      SITE_NAME;
 
 // ****************************************************************************
 
+include_once(CLASSES . "editorial.php");
+include_once(CLASSES . "author.php");
 include_once(CLASSES . "user.php");
 include_once(CLASSES . "floor.php");
 include_once(CLASSES . "request.php");
