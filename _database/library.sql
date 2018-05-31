@@ -274,11 +274,10 @@ ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 -- Inserts
 -- -----------------------------------------------------
 
-INSERT INTO `floor` (`number`)
-VALUES (-2), (-1), (0), (1), (2), (3), (4);
+INSERT INTO `floor` (`number`) VALUES
+  (-2), (-1), (0), (1), (2), (3), (4);
 
-INSERT INTO `room`(`tv`, `number`, `floor_id`)
-VALUES
+INSERT INTO `room`(`tv`, `number`, `floor_id`) VALUES
   (0,1,1), (0,2,1), (0,3,1), (0,4,1), (0,5,1), (1,6,1), (1,7,1), (1,8,1),
   (1,1,2), (1,2,2), (1,3,2), (1,4,2),
   (0,1,3), (0,2,3), (0,3,3), (0,4,3),
@@ -289,4 +288,22 @@ VALUES
 
 INSERT INTO user (username, email, password, type) VALUES
   ('juanmsl', 'juanmsl_pk@hotmail.com', 'f3ba381b6baef526bf70ff220b1da4906989224b', 'admin'),
-  ('luisdzc', 'luisdzc@gmail.com', 'f3ba381b6baef526bf70ff220b1da4906989224b', 'guest');
+  ('luisdzc', 'luisdavidzarate@gmail.com', 'f3ba381b6baef526bf70ff220b1da4906989224b', 'admin');
+
+INSERT INTO editorial (name) VALUES
+  ('Macmillan Company'),
+  ('Ediciones Obelisco'),
+  ('Giron Books'),
+  ('Harper');
+  
+INSERT INTO author (name) VALUES
+  ('Richard Bach'),
+  ('Robert Fisher'),
+  ('Scott Alexander'),
+  ('Gabriel García Márquez');
+
+INSERT INTO book (name, edition, pages, ISBN, editorial_id, author_id, quantity) VALUES
+  ('Juan Salvador Gabiota', 1, 96, '9788495980342', 1, 1, 5),
+  ('El caballero de la armadura oxidada', 2, 85, '1435625624513', 2, 2, 30),
+  ('Rinoceronte', 1, 104, '56376734113', 3, 3, 25),
+  ('Cien años de soledad', 4, 471, '748763567363', 4, 4, 100);
