@@ -1,23 +1,22 @@
 <?php
 
 require_once("../global.php");
-define('SERVICE_ID', 'reserve_room');
+define('SERVICE_ID', 'aprove_reservation');
 
 if(!LOGGED_IN) {
     Core::Redirect(INDEX);
 }
 
-if(!isset($_POST["request-room-form"])) {
+if(!isset($_POST["aprove-reservation-form"])) {
     @$response->success = 0;
-    $response->message = "error request method must be POST from 'request-room-form'";
+    $response->message = "error request method must be POST from 'aprove-reservation-form'";
 } else {
     @$response->success = 1;
     
-    $date_reservation = $_POST["time"];
-    $user_id = USER_ID;
-    $room_id = $_POST["room_id"];
+    $reservation_detail_id = $_POST["reservation-detail-id"];
+    $time = $_POST["time"];
     
-    $result = Request::createRoomReservation($date_reservation, $user_id, $room_id);
+    $result = Request::approveReservation($reservation_detail_id, $time);
     
     $response->message = "Room reservation created";
     if(!$result) {

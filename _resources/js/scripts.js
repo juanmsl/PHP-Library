@@ -24,6 +24,9 @@ let navbar = $("#pw-navbar");
 
 if(navbar) {
     $(".maincontent").css("padding-top", navbar.height() + 20 + "px");
+    $("#pw-navbar-toggle").on('click', function() {
+        $("#pw-navbar-items").slideToggle();
+    });
     
     window.onscroll = function() {
         let distance = window.scrollY;
@@ -216,7 +219,28 @@ if(create_equipment_button) {
         e.preventDefault();
         let data = $(this).serializeArray();
         let formdata = getJSON(data);
+        let formd = new FormData($(this)[0]);
         console.log(formdata);
+        
+        let imagejson = {};
+        imagejson["file"] = formd.get("image_equipment");
+        imagejson["fileupload"] = "true";
+        
+        $.ajax({
+            url: "/_services/upload_photo.php",
+            data: imagejson,
+            cache: false,
+            contentType: false,
+            processData: false,
+            method: 'POST',
+            type: 'POST',
+            success: function(e) {
+                console.log(e);
+            },
+            error: function(e) {
+                console.log(e);
+            }
+        });
         
         $.ajax({
             type: "POST",
@@ -303,6 +327,36 @@ if(create_equipment_button) {
                 console.log(response);
                 if(response.success) {
                     window.location = "/equipment";
+                }
+            },
+            error: function() {
+            }
+        });
+    });
+}
+
+// -------------------------Equipment
+
+let request_form = $(".resquest-form");
+
+if(request_form) {
+    request_form.on('submit', function(e) {
+        e.preventDefault();
+        let data = $(this).serializeArray();
+        let formdata = getJSON(data);
+        
+        console.log(formdata);
+        
+        $.ajax({
+            type: "POST",
+            url: "/_services/aprove_reservation.php",
+            data: data,
+            success: function(msg) {
+                console.log(msg);
+                var response = JSON.parse(msg);
+                console.log(response);
+                if(response.success) {
+                    window.location = "/requests";
                 }
             },
             error: function() {

@@ -39,15 +39,19 @@
                             <p class="pw-books-book-item"><?php echo $book->author_name; ?></p>
                             <p class="pw-books-book-item"><?php echo "Editorial " . $book->editorial_name . " - Edición " . $book->edition; ?></p>
                             <p class="pw-books-book-item"><?php echo $book->pages; ?> paginas</p>
-                            <p class="pw-books-book-item"><?php echo $book->quantity; ?> disponibles</p>
+                            <p class="pw-books-book-item"><?php echo ($book->quantity - $book->reserved); ?> disponibles</p>
                             <p class="pw-books-book-item">ISBN <?php echo $book->isbn; ?></p>
-                            <button 
-                                bookid="<?php  echo $book->id; ?>"
-                                bookname="<?php  echo $book->name; ?>"
-                                class="pw-button select-book thin expanded" target="#modal-reserve-book">Solicitar</button>
-                            <?php if(USER_IS_ADMIN) { ?>
-                                <button bookid="<?php  echo $book->id; ?>" class="pw-button thin transparent expanded delete-book">Eliminar</button>
-                            <?php } ?>
+                            <section class="pw-books-buttons">
+                                <?php if($book->quantity - $book->reserved > 0) { ?>
+                                    <button 
+                                        bookid="<?php  echo $book->id; ?>"
+                                        bookname="<?php  echo $book->name; ?>"
+                                        class="pw-button select-book thin expanded" target="#modal-reserve-book">Solicitar</button>
+                                <?php } ?>
+                                <?php if(USER_IS_ADMIN) { ?>
+                                    <button bookid="<?php  echo $book->id; ?>" class="pw-button thin transparent expanded delete-book">Eliminar</button>
+                                <?php } ?>
+                            </section>
                         </arcticle>
                     <?php } ?>
                 </section>

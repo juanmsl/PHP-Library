@@ -10,7 +10,14 @@
     }
     
     .pw-request {
+        min-width: 300px;
         padding: 0 $padding * 2 $padding * 3;
+        display: flex;
+        flex-direction: column;
+        
+        .pw-form {
+            flex-grow: 1;
+        }
         
         &:first-child {
             padding-left: 0;
@@ -18,6 +25,10 @@
         
         &:last-child {
             padding-right: 0;
+        }
+        
+        .pw-request-top {
+            margin-top: auto;
         }
     }
     

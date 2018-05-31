@@ -12,7 +12,12 @@
     }
     
     .pw-books-book {
-        
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .pw-books-buttons {
+        margin-top: auto;
     }
     
     .pw-books-book-item {

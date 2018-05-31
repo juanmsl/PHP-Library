@@ -14,11 +14,10 @@ if(!isset($_POST["request-book-form"])) {
     @$response->success = 1;
     
     $date_reservation = $_POST["time"];
-    $time = 2;
     $user_id = USER_ID;
     $book_id = $_POST["book_id"];
     
-    $result = Request::createBookReservation($date_reservation, $time, $user_id, $book_id);
+    $result = Request::createBookReservation($date_reservation, $user_id, $book_id);
     
     $response->message = "Book reservation created";
     if(!$result) {

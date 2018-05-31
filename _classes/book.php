@@ -2,9 +2,10 @@
 
 class Book {
 
-    public static function getBooks($field = "", $value = "") {
+    public static function getBooks($time, $field = "", $value = "") {
         
         $extra = "";
+        $time = Core::Clean($time);
         
         if($field !== "" and $value !== "") {
             $field = Core::clean($field);
@@ -36,7 +37,19 @@ class Book {
             SELECT
             	book.id AS id, book.name as name, edition, pages, quantity, isbn, editorial_id, author_id,
             	author.name AS author_name,
-            	editorial.name AS editorial_name
+            	editorial.name AS editorial_name,
+            	(SELECT
+                 	COUNT(*)
+                 FROM
+                 	book_reservation JOIN reservation_detail ON (reservation_detail.id = book_reservation.reservation_detail_id)
+                 WHERE
+                 	book_reservation.book_id = book.id
+                 	AND reservation_detail.status='approved'
+                 	AND (
+            			reservation_detail.date_reservation <= TIMESTAMP('$time')
+                        AND TIMESTAMP('$time') <= DATE_ADD(reservation_detail.date_reservation , INTERVAL reservation_detail.time DAY)
+                    )
+                ) as reserved
             FROM
             	book JOIN editorial ON (editorial.id = book.editorial_id)
             	JOIN author ON (author.id = book.author_id)

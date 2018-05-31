@@ -1,3 +1,5 @@
+$navbar_break: 850px;
+
 .pw-navbar {
     position: fixed;
     width: 100%;
@@ -10,8 +12,23 @@
     
     .pw-navbar-content{
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        
+        @include from($navbar_break) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    
+    .pw-navbar-toggle {
+        padding: $padding $padding * 2;
+        cursor: pointer;
+        font-size: 1.2rem;
+        
+        @include from($navbar_break) {
+            display: none;
+        }
     }
     
     @include from (laptop) {
@@ -31,11 +48,15 @@
     .pw-navbar-header {
         display: flex;
         align-items: center;
-        padding: $padding;
+        justify-content: space-between;
     }
     
-    @include from (laptop) {
-        .pw-navbar-header {
+    .pw-navbar-names {
+        display: flex;
+        align-items: center;
+        padding: $padding;
+        
+        @include from (laptop) {
             padding-left: 0;
         }
     }
@@ -60,29 +81,60 @@
         list-style: none;
         padding: 0;
         margin: 0;
-        display: flex;
+        display: none;
         align-self: stretch;
+        
+        @include from($navbar_break) {
+            display: flex !important;
+        }
     }
     
     .pw-navbar-item {
         display: flex;
         font-size: 0.8rem;
+        border-bottom: 1px solid;
         
         a {
             display: flex;
             align-items: center;
             text-align: center;
-            padding: 0 $padding * 2;
+            padding: $padding $padding * 5;
+            width: 100%;
         }
         
         &.active, &:hover {
             background: $primary_gray;
             color: white;
         }
+        
+        @include from($navbar_break) {
+            
+            a {
+                padding: 0 $padding * 2;
+            }
+            
+            border-bottom: 0;
+        }
     }
     
     .pw-navbar-sign-out {
-        font-size: 1.2rem;
+        
+        & .pwi::before {
+            display: none;
+        }
+        
+        @include from($navbar_break) {
+            & .pwi::before {
+                display: inherit;
+            }
+            font-size: 1.2rem;
+        }
+        
+        span {
+            @include from($navbar_break) {
+                display: none;
+            }
+        }
     }
     
     &.pw-navbar_scroll {

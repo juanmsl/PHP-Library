@@ -16,7 +16,7 @@ if(isset($_GET["search-book"])) {
     $value = $_GET["search"];
 }
 
-$books = Book::getBooks($field, $value);
+$books = Book::getBooks($time, $field, $value);
 $editorials = Editorial::getAll();
 $authors = Author::getAll();
 

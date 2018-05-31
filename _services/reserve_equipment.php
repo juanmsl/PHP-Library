@@ -14,11 +14,10 @@ if(!isset($_POST["request-equipment-form"])) {
     @$response->success = 1;
     
     $date_reservation = $_POST["time"];
-    $time = 2;
     $user_id = USER_ID;
     $equipment_id = $_POST["equipment_id"];
     
-    $result = Request::createEquipmentReservation($date_reservation, $time, $user_id, $equipment_id);
+    $result = Request::createEquipmentReservation($date_reservation, $user_id, $equipment_id);
     
     $response->message = "Equipment reservation created";
     if(!$result) {
