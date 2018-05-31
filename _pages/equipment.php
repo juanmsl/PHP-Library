@@ -39,10 +39,7 @@
                             <p class="pw-equipments-equipment-item"><?php echo $equipment->quantity; ?> disponibles</p>
                             <button class="pw-button thin expanded">Solicitar</button>
                             <?php if(USER_IS_ADMIN) { ?>
-                                <section class="pw-buttons-container">
-                                    <button class="pw-button thin transparent modify-equipment">Modificar</button>
-                                    <button class="pw-button thin transparent delete-equipment">Eliminar</button>
-                                </section>
+                                <button equipmentid="<?php echo $equipment->id; ?>" class="pw-button thin transparent expanded delete-equipment">Eliminar</button>
                             <?php } ?>
                         </arcticle>
                     <?php } ?>

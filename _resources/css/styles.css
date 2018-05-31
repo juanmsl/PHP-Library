@@ -2143,6 +2143,10 @@ a { text-decoration: none; color: inherit; }
 
 .pw-form .pw-form-center { -ms-flex-item-align: center; align-self: center; }
 
+.pw-form .pw-form-file-container { position: relative; }
+
+.pw-form .pw-form-file { position: absolute; width: 100%; height: 100%; top: 0; left: 0; opacity: 0; }
+
 .pw-form.inline .pw-form-fields { display: grid; grid-template-columns: 1fr; grid-gap: 10px; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; }
 
 @media all and (min-width: 400px) { .pw-form.inline .pw-form-fields { grid-template-columns: 1fr 150px; } }
@@ -2207,9 +2211,13 @@ a { text-decoration: none; color: inherit; }
 
 .pw-navbar.pw-navbar_scroll { background: #45525F; color: white; }
 
-.pw-modal { position: fixed; width: 100%; height: 100%; top: 0; left: 0; background: rgba(69, 82, 95, 0.8); display: none; z-index: 1500; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.pw-modal { position: fixed; width: 100%; height: 100%; top: 0; left: 0; background: rgba(69, 82, 95, 0.8); display: none; z-index: 1500; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; overflow: auto; }
 
 .pw-modal.active { display: -webkit-box; display: -ms-flexbox; display: flex; }
+
+.pw-modal .modal-image-preview { width: 100%; width: 300px; margin-bottom: 20px; }
+
+.pw-modal .modal-image-preview img { width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; }
 
 .pw-modal .pw-modal-close { position: absolute; color: white; margin: 10px; font-size: 3rem; top: 0; right: 0; cursor: pointer; }
 
@@ -2309,23 +2317,23 @@ a { text-decoration: none; color: inherit; }
 
 @media all and (min-width: 300px) { .pw-floor-rooms { grid-template-columns: repeat(2, 1fr); } }
 
-@media all and (min-width: 500px) { .pw-floor-rooms { grid-template-columns: repeat(3, 1fr); } }
+@media all and (min-width: 600px) { .pw-floor-rooms { grid-template-columns: repeat(3, 1fr); } }
 
-@media all and (min-width: 700px) { .pw-floor-rooms { grid-template-columns: repeat(4, 1fr); } }
+@media all and (min-width: 900px) { .pw-floor-rooms { grid-template-columns: repeat(4, 1fr); } }
 
-@media all and (min-width: 900px) { .pw-floor-rooms { grid-template-columns: repeat(5, 1fr); } }
+@media all and (min-width: 1200px) { .pw-floor-rooms { grid-template-columns: repeat(5, 1fr); } }
 
-@media all and (min-width: 1100px) { .pw-floor-rooms { grid-template-columns: repeat(6, 1fr); } }
+@media all and (min-width: 1500px) { .pw-floor-rooms { grid-template-columns: repeat(6, 1fr); } }
 
-@media all and (min-width: 1300px) { .pw-floor-rooms { grid-template-columns: repeat(7, 1fr); } }
+@media all and (min-width: 1800px) { .pw-floor-rooms { grid-template-columns: repeat(7, 1fr); } }
 
-@media all and (min-width: 1500px) { .pw-floor-rooms { grid-template-columns: repeat(8, 1fr); } }
+@media all and (min-width: 2100px) { .pw-floor-rooms { grid-template-columns: repeat(8, 1fr); } }
 
-@media all and (min-width: 1700px) { .pw-floor-rooms { grid-template-columns: repeat(9, 1fr); } }
+@media all and (min-width: 2400px) { .pw-floor-rooms { grid-template-columns: repeat(9, 1fr); } }
 
-@media all and (min-width: 1900px) { .pw-floor-rooms { grid-template-columns: repeat(10, 1fr); } }
+@media all and (min-width: 2700px) { .pw-floor-rooms { grid-template-columns: repeat(10, 1fr); } }
 
-@media all and (min-width: 2100px) { .pw-floor-rooms { grid-template-columns: repeat(11, 1fr); } }
+@media all and (min-width: 3000px) { .pw-floor-rooms { grid-template-columns: repeat(11, 1fr); } }
 
 .pw-floor-rooms .pw-floor-room { border-radius: 5px; border: 1px solid #45525F; padding: 10px 20px; text-align: center; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; font-size: 0.8rem; background: #F7F7F7; }
 

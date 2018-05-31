@@ -48,6 +48,16 @@ class Equipment {
         return Core::db()->doQuery($query);
     }
     
+    public static function delete($id) {
+        $id = Core::Clean($id);
+        
+        $query = "
+            DELETE FROM equipment WHERE id='$id'
+        ";
+        
+        return Core::db()->doQuery($query);
+    }
+    
 }
 
 ?>

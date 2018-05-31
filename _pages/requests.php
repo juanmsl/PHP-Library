@@ -21,9 +21,13 @@
                                         <form class="pw-form" method="POST">
                                             <h6>Solicitud <?php echo $request->id; ?></h6>
                                             <input class="pw-form-item" type="hidden" name="reservation_id" value="<?php echo $request->id; ?>" />
-                                            <input class="pw-form-item" type="datetime-local" placeholder="Fecha de reserva" value="<?php echo $request->date_reservation; ?>" readonly />
+                                            <input class="pw-form-item" type="date" placeholder="Fecha de reserva" value="<?php echo $request->date_reservation; ?>" readonly />
                                             <input class="pw-form-item" type="text" placeholder="Usuario" value="<?php echo $request->username; ?>" readonly/>
-                                            <input class="pw-form-item" type="text" placeholder="Sala" value="<?php echo "Piso " . $request->floor_number . " - Sala " . $request->room_number; ?>" readonly />
+                                            <?php if($request->item == "room") { ?>
+                                                <input class="pw-form-item" type="text" placeholder="Sala" value="<?php echo "Piso " . $request->floor_number . " - Sala " . $request->room_number; ?>" readonly />
+                                            <?php } else if($request->item == "book") { ?>
+                                                <input class="pw-form-item" type="text" placeholder="Libro" value="<?php echo $request->book_name; ?>" readonly />
+                                            <?php } ?>
                                             <input class="pw-form-item" type="number" min="2" max="10" placeholder="Tiempo de prestamo"/>
                                             <section class="pw-request-buttons">
                                                 <button class="pw-button thin">Aprobar</button>

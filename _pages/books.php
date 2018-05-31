@@ -41,18 +41,19 @@
                             <p class="pw-books-book-item"><?php echo $book->pages; ?> paginas</p>
                             <p class="pw-books-book-item"><?php echo $book->quantity; ?> disponibles</p>
                             <p class="pw-books-book-item">ISBN <?php echo $book->isbn; ?></p>
-                            <button class="pw-button thin expanded">Solicitar</button>
+                            <button 
+                                bookid="<?php  echo $book->id; ?>"
+                                bookname="<?php  echo $book->name; ?>"
+                                class="pw-button select-book thin expanded" target="#modal-reserve-book">Solicitar</button>
                             <?php if(USER_IS_ADMIN) { ?>
-                                <section class="pw-buttons-container">
-                                    <button class="pw-button thin transparent modify-book">Modificar</button>
-                                    <button class="pw-button thin transparent delete-book">Eliminar</button>
-                                </section>
+                                <button bookid="<?php  echo $book->id; ?>" class="pw-button thin transparent expanded delete-book">Eliminar</button>
                             <?php } ?>
                         </arcticle>
                     <?php } ?>
                 </section>
             <?php } ?>
         </main>
+        <?php include(INCLUDES . "modal_reserve_book.php"); ?>
         <?php include(INCLUDES . "modal_create_book.php"); ?>
         <?php include(INCLUDES . "footer.php"); ?>
     </body>
