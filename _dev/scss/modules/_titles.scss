@@ -9,3 +9,17 @@
     border-bottom: 2px solid;
     margin-bottom: $margin * 2;
 }
+
+.pw-little {
+    font-size: 0.7rem;
+}
+
+.pw-bold {
+    font-weight: bold;
+    color: $primary_dark;
+}
+
+.pw-line {
+    line-height: 2em;
+    color: $primary-gray;
+}

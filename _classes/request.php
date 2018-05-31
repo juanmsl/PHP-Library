@@ -8,7 +8,7 @@ class Request {
         $query = "
             SELECT
             	DATE_FORMAT(date_request, '%Y-%m-%dT%H:%i') AS date_request,
-            	DATE_FORMAT(date_reservation, '%Y-%m-%dT%H:%i') AS date_reservation,
+            	DATE_FORMAT(date_reservation, '%d de %M del %Y a las %h:%i %p') AS date_reservation,
             	room_reservation.id AS id, time, status, item, user_id, room_id,
             	username, email, type
             	tv, room.number AS room_number,
@@ -30,7 +30,7 @@ class Request {
         $query = "
             SELECT
             	DATE_FORMAT(date_request, '%Y-%m-%dT%H:%i') AS date_request,
-            	DATE_FORMAT(date_reservation, '%Y-%m-%d') AS date_reservation,
+            	DATE_FORMAT(date_reservation, '%d de %M del %Y') AS date_reservation,
             	book_reservation.id AS id, time, status, item, user_id, book_id,
             	username, email, type,
             	book.name as book_name, edition, pages, isbn, editorial_id, author_id, quantity,
@@ -54,7 +54,7 @@ class Request {
         $query = "
             SELECT
             	DATE_FORMAT(date_request, '%Y-%m-%dT%H:%i') AS date_request,
-            	DATE_FORMAT(date_reservation, '%Y-%m-%dT%H:%i') AS date_reservation,
+            	DATE_FORMAT(date_reservation, '%d de %M del %Y') AS date_reservation,
             	equipment_reservation.id AS id, time, status, item, user_id, equipment_id,
             	username, email, type,
             	equipment.name as equipment_name, quantity, manufacturer, serial_number
@@ -113,6 +113,24 @@ class Request {
             ";
             
             $result = Core::db()->doQuery($book_reservation);
+        }
+        
+        return $result;
+    }
+    
+    public static function createEquipmentReservation($date_reservation, $time, $user_id, $equipment_id) {
+        $equipment_id = Core::Clean($equipment_id);
+        
+        $result = static::createReservationDetail($date_reservation, $time, $user_id, 'equipment');
+        
+        if($result) {
+            $reservation_detail_id = Core::db()->getLastIndex();
+            $equipment_reservation = "
+                INSERT INTO equipment_reservation (reservation_detail_id, equipment_id)
+                VALUES ('$reservation_detail_id', '$equipment_id');
+            ";
+            
+            $result = Core::db()->doQuery($equipment_reservation);
         }
         
         return $result;

@@ -97,6 +97,7 @@ if(create_book_button) {
     
     $("#modal-create-book-target-close").on('click', function() {
         modal_book.removeClass('active');
+        $("body").css("overflow", "auto");
     });
     
     $("#create-book-form").on('submit', function(e) {
@@ -125,6 +126,7 @@ if(create_book_button) {
     
     create_book_button.on('click', function() {
         modal_book.addClass('active');
+        $("body").css("overflow", "hidden");
     });
     
     select_book_button.on('click', function() {
@@ -134,6 +136,7 @@ if(create_book_button) {
         let message_form = $(targetid + "-message-form");
         let close = $(targetid + "-close").on('click', function() {
             target.removeClass("active");
+            $("body").css("overflow", "auto");
         });
         let book_id = $(this).attr("bookid");
         let book_name = $(this).attr("bookname");
@@ -142,6 +145,7 @@ if(create_book_button) {
         
         
         target.addClass("active");
+        $("body").css("overflow", "hidden");
         
         form.on('submit', function(e) {
             e.preventDefault();
@@ -195,14 +199,13 @@ if(create_book_button) {
 // -------------------------Equipment
 
 let create_equipment_button = $("#create-equipment");
-let modify_equipment_button = $(".modify-equipment");
-let delete_equipment_button = $(".delete-equipment");
 
-
-if(create_equipment_button && modify_equipment_button && delete_equipment_button) {
+if(create_equipment_button) {
     let modal_equipment = $("#modal-create-equipment-target");
     let message_equipment = $("#create-equipment-form-message");
     let image_equipment = $("#modal-equipment-image-preview");
+    let select_equipment_button = $(".select-equipment");
+    let delete_equipment_button = $(".delete-equipment");
     
     $("#modal-create-equipment-target-close").on('click', function() {
         modal_equipment.removeClass('active');
@@ -242,8 +245,45 @@ if(create_equipment_button && modify_equipment_button && delete_equipment_button
         $("body").css("overflow", "hidden");
     });
     
-    modify_equipment_button.on('click', function() {
-        alert($(this).text());
+    select_equipment_button.on('click', function() {
+        let targetid = $(this).attr("target");
+        let target = $(targetid);
+        let form = $(targetid + "-form");
+        let message_form = $(targetid + "-message-form");
+        let close = $(targetid + "-close").on('click', function() {
+            target.removeClass("active");
+            $("body").css("overflow", "auto");
+        });
+        let equipment_id = $(this).attr("equipmentid");
+        let equipment_name = $(this).attr("equipmentname");
+        $(targetid + "-form-id").val(equipment_id);
+        $(targetid + "-form-name").val(equipment_name);
+        
+        
+        target.addClass("active");
+        $("body").css("overflow", "hidden");
+        
+        form.on('submit', function(e) {
+            e.preventDefault();
+            let data = $(this).serializeArray();
+            let formdata = getJSON(data);
+            
+            $.ajax({
+                type: "POST",
+                url: "/_services/reserve_equipment.php",
+                data: formdata,
+                success: function(msg) {
+                    var response = JSON.parse(msg);
+                    console.log(response);
+                    message_form.val(response.message);
+                    if(response.success) {
+                        window.location = "/equipment";
+                    }
+                },
+                error: function() {
+                }
+            });
+        });
     });
     
     delete_equipment_button.on('click', function(e) {

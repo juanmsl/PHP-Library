@@ -7,6 +7,8 @@ if(!LOGGED_IN) {
     Core::Redirect(INDEX);
 }
 
+
+$time = Core::FormatDate(time(), "Y-m-d");
 $field = "";
 $value = "";
 

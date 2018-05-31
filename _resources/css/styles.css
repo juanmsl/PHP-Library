@@ -2235,6 +2235,12 @@ a { text-decoration: none; color: inherit; }
 
 .pw-subtitle { padding-bottom: 10px; border-bottom: 2px solid; margin-bottom: 20px; }
 
+.pw-little { font-size: 0.7rem; }
+
+.pw-bold { font-weight: bold; color: #45525F; }
+
+.pw-line { line-height: 2em; color: #8492A6; }
+
 .pw-buttons-container { display: grid; grid-auto-flow: row; grid-gap: 10px; grid-auto-columns: 1fr; }
 
 @media all and (min-width: 768px) { .pw-buttons-container { grid-auto-flow: column; } }
@@ -2341,7 +2347,7 @@ a { text-decoration: none; color: inherit; }
 
 .pw-floor-rooms .pw-floor-room .pw-button { margin-top: 10px; }
 
-.pw-requests-columns .pw-request-column-content { display: grid; grid-auto-flow: column; grid-gap: 10px; overflow-x: auto; width: 100%; }
+.pw-requests-columns .pw-request-column-content { display: -webkit-box; display: -ms-flexbox; display: flex; overflow-x: auto; width: 100%; }
 
 .pw-requests-columns .pw-request { padding: 0 20px 30px; }
 

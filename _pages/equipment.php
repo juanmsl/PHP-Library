@@ -37,7 +37,10 @@
                             <p class="pw-equipments-equipment-item"><?php echo $equipment->manufacturer; ?></p>
                             <p class="pw-equipments-equipment-item">Número serial <?php echo $equipment->serial_number; ?></p>
                             <p class="pw-equipments-equipment-item"><?php echo $equipment->quantity; ?> disponibles</p>
-                            <button class="pw-button thin expanded">Solicitar</button>
+                            <button 
+                                equipmentid="<?php  echo $equipment->id; ?>"
+                                equipmentname="<?php  echo $equipment->name; ?>"
+                                class="pw-button thin expanded select-equipment" target="#modal-reserve-equipment">Solicitar</button>
                             <?php if(USER_IS_ADMIN) { ?>
                                 <button equipmentid="<?php echo $equipment->id; ?>" class="pw-button thin transparent expanded delete-equipment">Eliminar</button>
                             <?php } ?>
@@ -46,6 +49,7 @@
                 </section>
             <?php } ?>
         </main>
+        <?php include(INCLUDES . "modal_reserve_equipment.php"); ?>
         <?php include(INCLUDES . "modal_create_equipment.php"); ?>
         <?php include(INCLUDES . "footer.php"); ?>
     </body>

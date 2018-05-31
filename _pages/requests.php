@@ -19,16 +19,30 @@
                                 <?php while($request = $item["data"]->fetch_object()) { ?>
                                     <section class="pw-request">
                                         <form class="pw-form" method="POST">
-                                            <h6>Solicitud <?php echo $request->id; ?></h6>
-                                            <input class="pw-form-item" type="hidden" name="reservation_id" value="<?php echo $request->id; ?>" />
-                                            <input class="pw-form-item" type="date" placeholder="Fecha de reserva" value="<?php echo $request->date_reservation; ?>" readonly />
-                                            <input class="pw-form-item" type="text" placeholder="Usuario" value="<?php echo $request->username; ?>" readonly/>
+                                            <h6 class="pw-little">Solicitud <?php echo $request->id; ?></h6>
+                                            <label class="pw-line"><span class="pw-bold"><?php echo $request->username; ?></span> solicito para el dia</label>
+                                            <label class="pw-bold pw-line"><?php echo $request->date_reservation; ?></label>
+                                            
                                             <?php if($request->item == "room") { ?>
-                                                <input class="pw-form-item" type="text" placeholder="Sala" value="<?php echo "Piso " . $request->floor_number . " - Sala " . $request->room_number; ?>" readonly />
+                                                <label class="pw-line">
+                                                    la sala <span class="pw-bold"><?php echo "Piso " . $request->floor_number . " - Sala " . $request->room_number; ?></span>
+                                                </label>
+                                                <label class="pw-form-label" for="<?php echo $request->item . "-" . $request->id; ?>-time">¿Cuantas horas de prestamo serán?</label>
+                                                <input id="<?php echo $request->item . "-" . $request->id; ?>-time" class="pw-form-item" type="number" min="2" max="10" value="3" placeholder="Tiempo de prestamo"/>
                                             <?php } else if($request->item == "book") { ?>
-                                                <input class="pw-form-item" type="text" placeholder="Libro" value="<?php echo $request->book_name; ?>" readonly />
+                                                <label class="pw-line">
+                                                    el libro <span class="pw-bold"><?php echo $request->book_name; ?></span>
+                                                </label>
+                                                <label class="pw-form-label" for="<?php echo $request->item . "-" . $request->id; ?>-time">¿Cuantos dias de prestamo serán?</label>
+                                                <input id="<?php echo $request->item . "-" . $request->id; ?>-time" class="pw-form-item" type="number" min="2" max="10" value="15" placeholder="Tiempo de prestamo"/>
+                                            <?php } else if($request->item == "equipment") { ?>
+                                                <label class="pw-line">
+                                                    el equipo <span class="pw-bold"><?php echo $request->equipment_name; ?></span>
+                                                </label>
+                                                <label class="pw-form-label" for="<?php echo $request->item . "-" . $request->id; ?>-time">¿Cuantas horas de prestamo serán?</label>
+                                                <input id="<?php echo $request->item . "-" . $request->id; ?>-time" class="pw-form-item" type="number" min="2" max="10" value="3" placeholder="Tiempo de prestamo"/>
                                             <?php } ?>
-                                            <input class="pw-form-item" type="number" min="2" max="10" placeholder="Tiempo de prestamo"/>
+                                            
                                             <section class="pw-request-buttons">
                                                 <button class="pw-button thin">Aprobar</button>
                                                 <button class="pw-button thin transparent">Denegar</button>

@@ -4,9 +4,7 @@
     }
     
     .pw-request-column-content {
-        display: grid;
-        grid-auto-flow: column;
-        grid-gap: $gutter;
+        display: flex;
         overflow-x: auto;
         width: 100%;
     }
