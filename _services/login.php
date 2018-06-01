@@ -10,6 +10,11 @@ if(isset($_POST["login-form"])) {
     $user = User::get($entry, $password, true);
     
     if($user) {
+        $mail = $user->email;
+        $asunto = "Logeado Javelibrary";
+        $mensaje = "te has logueado exitosamente";
+        $de = "javelibrary@gmail.com";
+        mail($mail,$asunto,$mensaje,"From: $de\n");
         $_SESSION['USER_NAME'] = $user->username;
 		$_SESSION['USER_PASS'] = $user->password;
 		$_SESSION['set_cookies'] = true;
