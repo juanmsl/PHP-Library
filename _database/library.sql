@@ -288,7 +288,8 @@ INSERT INTO `room`(`tv`, `number`, `floor_id`) VALUES
 
 INSERT INTO user (username, email, password, type) VALUES
   ('juanmsl', 'juanmsl_pk@hotmail.com', 'f3ba381b6baef526bf70ff220b1da4906989224b', 'admin'),
-  ('luisdzc', 'luisdavidzarate@gmail.com', 'f3ba381b6baef526bf70ff220b1da4906989224b', 'admin');
+  ('luisdzc', 'luisdavidzarate@gmail.com', 'f3ba381b6baef526bf70ff220b1da4906989224b', 'admin'),
+  ('juanmig', 'juanmig8@gmail.com', 'f3ba381b6baef526bf70ff220b1da4906989224b', 'admin');
 
 INSERT INTO editorial (name) VALUES
   ('Macmillan Company'),

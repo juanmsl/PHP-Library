@@ -7,7 +7,7 @@
             <section class="pw-form-container">
                 <form class="pw-form" method="POST" action="<?php echo SERVICES . "register.php"; ?>">
                     <img src="<?php echo RESOURCES . "images/favicon.png"; ?>" alt="Biblioteca icono" class="pw-form-logo"></img>
-                    <h1 class="pw-form-title">Biblioteca PUJA</h1>
+                    <h1 class="pw-form-title"><?php echo SITE_NAME; ?></h1>
                     <input type="hidden" name="type" value="guest" />
                     <input type="text" name="username" class="pw-form-item" placeholder="Usuario" required />
                     <input type="email" name="email" class="pw-form-item" placeholder="Correo" required />

@@ -34,16 +34,17 @@
                             <h4 class="pw-equipments-equipment-name"><?php echo $event->name; ?></h4>
                             <p class="pw-equipments-equipment-item"><?php echo $event->date; ?></p>
                             <p class="pw-equipments-equipment-item"><?php echo $event->place; ?></p>
-                            <p class="pw-equipments-equipment-item">n inscritos de <?php echo $event->guest_number; ?></p>
-                            <button class="pw-button thin expanded">Suscribirme</button>
+                            <p class="pw-equipments-equipment-item"><?php echo $event->inscribed; ?> inscritos de <?php echo $event->guest_number; ?></p>
+                            <button eventid="<?php echo $event->id; ?>" class="pw-button thin expanded subscribe-event">Suscribirme</button>
                             <?php if(USER_IS_ADMIN) { ?>
-                                <button class="pw-button pw-red delete-event">Eliminar</button>
+                                <button eventid="<?php echo $event->id; ?>" class="pw-button thin transparent expanded delete-event">Eliminar</button>
                             <?php } ?>
                         </arcticle>
                     <?php } ?>
                 </section>
             <?php } ?>
         </main>
+        <?php include(INCLUDES . "modal_create_event.php"); ?>
         <?php include(INCLUDES . "footer.php"); ?>
     </body>
     <?php include(INCLUDES . "scripts.php"); ?>

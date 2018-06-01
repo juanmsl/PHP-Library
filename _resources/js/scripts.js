@@ -260,10 +260,6 @@ if(create_equipment_button) {
         });
     });
     
-    $("#modal-image-input").on('change', function() {
-        readURL(this, image_equipment);
-    });
-    
     create_equipment_button.on('click', function() {
         modal_equipment.addClass('active');
         $("body").css("overflow", "hidden");
@@ -335,7 +331,7 @@ if(create_equipment_button) {
     });
 }
 
-// -------------------------Equipment
+// -------------------------Request
 
 let request_form = $(".resquest-form");
 let reuest_cancel = $(".pw-cancel-request");
@@ -383,6 +379,100 @@ if(request_form) {
                 console.log(response);
                 if(response.success) {
                     window.location = "/requests";
+                }
+            },
+            error: function() {
+            }
+        });
+    });
+}
+
+// -------------------------Event
+
+let create_event_button = $("#create-event");
+
+if(create_event_button) {
+    let modal_event = $("#modal-create-event-target");
+    let message_event = $("#create-event-form-message");
+    let subscribe_event_button = $(".subscribe-event");
+    let delete_event_button = $(".delete-event");
+    
+    $("#modal-create-event-target-close").on('click', function() {
+        modal_event.removeClass('active');
+        $("body").css("overflow", "auto");
+    });
+    
+    $("#create-event-form").on('submit', function(e) {
+        e.preventDefault();
+        let data = $(this).serializeArray();
+        let formdata = getJSON(data);
+        let formd = new FormData($(this)[0]);
+        console.log(formdata);
+        
+        $.ajax({
+            type: "POST",
+            url: "/_services/create_event.php",
+            data: formdata,
+            success: function(msg) {
+                console.log(msg);
+                var response = JSON.parse(msg);
+                console.log(response);
+                message_event.val(response.message);
+                if(response.success) {
+                    window.location = "/events";
+                }
+            },
+            error: function() {
+            }
+        });
+    });
+    
+    create_event_button.on('click', function() {
+        modal_event.addClass('active');
+        $("body").css("overflow", "hidden");
+    });
+    
+    subscribe_event_button.on('click', function(e) {
+        let id = $(this).attr("eventid");
+        e.preventDefault();
+        let data = {};
+        data["subscribe-event"] = true;
+        data["event-id"] = id;
+            
+        $.ajax({
+            type: "POST",
+            url: "/_services/subscribe_event.php",
+            data: data,
+            success: function(msg) {
+                console.log(msg);
+                var response = JSON.parse(msg);
+                console.log(response);
+                if(response.success) {
+                    window.location = "/events";
+                }
+            },
+            error: function() {
+            }
+        });
+    });
+    
+    delete_event_button.on('click', function(e) {
+        let id = $(this).attr("eventid");
+        e.preventDefault();
+        let data = {};
+        data["delete-event"] = true;
+        data["event-id"] = id;
+        
+        $.ajax({
+            type: "POST",
+            url: "/_services/delete_event.php",
+            data: data,
+            success: function(msg) {
+                console.log(msg);
+                var response = JSON.parse(msg);
+                console.log(response);
+                if(response.success) {
+                    window.location = "/events";
                 }
             },
             error: function() {

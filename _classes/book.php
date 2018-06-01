@@ -16,7 +16,7 @@ class Book {
                     $extra = "WHERE book.name LIKE '%$value%'";
                     break;
                 case "author":
-                    $extra = "WHERE CONCAT(author.surnames, ' ', author.names) LIKE '%$value%'";
+                    $extra = "WHERE author.name LIKE '%$value%'";
                     break;
                 case "editorial":
                     $extra = "WHERE editorial.name LIKE '%$value%'";

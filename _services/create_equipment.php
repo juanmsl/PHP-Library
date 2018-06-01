@@ -11,9 +11,8 @@ if(!isset($_POST["create-equipment-form"])) {
     @$response->success = 0;
     $response->message = "error request method must be POST from 'create-equipment-form'";
 } else {
-    @$response->success = 0;
+    @$response->success = 1;
     $response->message = "";
-    $continue = true;
     
     $name = $_POST["name"];
     $serial_number = $_POST["serial_number"];

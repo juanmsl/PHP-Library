@@ -32,7 +32,6 @@
                 <section class="pw-equipments-gallery">
                     <?php while($equipment = $equipments->fetch_object()) { ?>
                         <arcticle class="pw-equipments-equipment">
-                            <img class="pw-equipments-equipment-picture" src="<?php echo MEDIA . $equipment->id . "-" . $equipment->serial_number; ?>" />
                             <h4 class="pw-equipments-equipment-name"><?php echo $equipment->name; ?></h4>
                             <p class="pw-equipments-equipment-item"><?php echo $equipment->manufacturer; ?></p>
                             <p class="pw-equipments-equipment-item">Número serial <?php echo $equipment->serial_number; ?></p>
