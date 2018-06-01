@@ -47,7 +47,7 @@
                                             
                                             <section class="pw-request-buttons">
                                                 <button type="submit" class="pw-button thin">Aprobar</button>
-                                                <button class="pw-button thin transparent">Denegar</button>
+                                                <button class="pw-button thin transparent pw-cancel-request" reservationdetailid="<?php echo $request->reservation_detail_id; ?>">Denegar</button>
                                             </section>
                                         </form>
                                     </section>

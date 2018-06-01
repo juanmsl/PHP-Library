@@ -1,24 +1,23 @@
 <?php
 
 require_once("../global.php");
-define('SERVICE_ID', 'aprove_reservation');
+define('SERVICE_ID', 'cancel_reservation');
 
 if(!LOGGED_IN) {
     Core::Redirect(INDEX);
 }
 
-if(!isset($_POST["aprove-reservation-form"])) {
+if(!isset($_POST["cancel-reservation-form"])) {
     @$response->success = 0;
-    $response->message = "error request method must be POST from 'aprove-reservation-form'";
+    $response->message = "error request method must be POST from 'cancel-reservation-form'";
 } else {
     @$response->success = 1;
     
     $reservation_detail_id = $_POST["reservation-detail-id"];
-    $time = $_POST["time"];
     
-    $result = Request::approveReservation($reservation_detail_id, $time);
+    $result = Request::cancelReservation($reservation_detail_id);
     
-    $response->message = "Reservation approved";
+    $response->message = "Reservation cancelled";
     if(!$result) {
         $response->success = 0;
         $response->message = Core::db()->getError();

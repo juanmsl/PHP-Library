@@ -145,6 +145,16 @@ class Request {
         
         return Core::db()->doQuery($approve);
     }
+    
+    public static function cancelReservation($reservation_detail_id) {
+        $reservation_detail_id = Core::Clean($reservation_detail_id);
+        
+        $cancel = "
+            UPDATE reservation_detail SET time='0', status='canceled' WHERE id='$reservation_detail_id'
+        ";
+        
+        return Core::db()->doQuery($cancel);
+    }
 }
 
 ?>

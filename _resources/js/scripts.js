@@ -338,8 +338,34 @@ if(create_equipment_button) {
 // -------------------------Equipment
 
 let request_form = $(".resquest-form");
+let reuest_cancel = $(".pw-cancel-request");
 
 if(request_form) {
+    reuest_cancel.on('click', function(e) {
+        e.preventDefault();
+        let formdata = {};
+        formdata["reservation-detail-id"] = $(this).attr("reservationdetailid");
+        formdata["cancel-reservation-form"] = true;
+        
+        console.log(formdata);
+        
+        $.ajax({
+            type: "POST",
+            url: "/_services/cancel_reservation.php",
+            data: formdata,
+            success: function(msg) {
+                console.log(msg);
+                var response = JSON.parse(msg);
+                console.log(response);
+                if(response.success) {
+                    window.location = "/requests";
+                }
+            },
+            error: function() {
+            }
+        });
+    });
+    
     request_form.on('submit', function(e) {
         e.preventDefault();
         let data = $(this).serializeArray();
